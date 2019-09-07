@@ -1,0 +1,3523 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/ -->
+<HTML><HEAD><TITLE>Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content=NOARCHIVE name=ROBOTS>
+<META content="Richard Holowczak" name=AUTHOR>
+<META content="Thu Apr 12 21:07:06 EDT 2001" name=TIMESTAMP>
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY bgColor=white><!-- This tutorial is copyrighted by Richard Holowczak (C) 1997-2004 richard_holowczak@baruch.cuny.edu ** DO NOT COPY -->
+<CENTER>
+<H2>Oracle9i Developer Suite<BR>A Tutorial on Oracle9i Forms and Reports </H2>
+<H4>Covering Developer version 9i for Windows NT/2000/XP</H4><!-- This tutorial is copyrighted by Richard Holowczak (C) 1997-2004 richard_holowczak@baruch.cuny.edu ** DO NOT COPY -->
+<H3><A href="http://cisnet.baruch.cuny.edu/holowczak/">Richard 
+Holowczak</A><BR></H3><A href="http://cisnet.baruch.cuny.edu/">Computer 
+Information Systems Department</A><BR>Zicklin School of Business, Baruch 
+College, CUNY<BR><A 
+href="mailto:richard_holowczak@baruch.cuny.edu">richard_holowczak@baruch.cuny.edu</A><BR></CENTER>
+<HR>
+<FONT size=-1><TT>Tutorial Version 5.2 - Fri Nov 19 22:21:05 EST 2004 
+</TT></FONT>
+<P><FONT face="Arial, Helvetica" size=-1>Please feel free to use these tutorials 
+for your own personal use, education, advancement, training, etc. However, I 
+kindly ask that you respect the time and effort I have put into this work by not 
+distributing copies, either in whole or in part, for your personal gain. You may 
+not under any circumstances download, cache or host copies of these tutorials on 
+your own servers. Use of these tutorials for commercial training requires a 
+special arrangement with the author or authors. </FONT>
+<P>
+<HR>
+
+<H2>Contents</H2><!-- This tutorial is copyrighted by Richard Holowczak (C) 1997-2004 richard_holowczak@baruch.cuny.edu ** DO NOT COPY -->
+<UL>
+  <LI><A 
+  href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#introduction">1. 
+  Introduction</A> 
+  <LI><A 
+  href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#prerequisites">2. 
+  Prerequisites</A> 
+  <LI><A 
+  href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#developer2000tools">3. 
+  Developer Tools</A> 
+  <UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#startingwindows">3.1 
+    Starting Developer tools under Windows</A> </LI></UL>
+  <LI><A 
+  href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#formsdesignermain">4. 
+  The Oracle Forms Builder Main Screen</A> 
+  <UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#objectnavigator">4.1 
+    Oracle Forms Object Navigator</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#connectingtodatabase">4.2 
+    Connecting to the Database</A> </LI></UL>
+  <LI><A 
+  href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#formsdesign">5. 
+  Forms Design</A> 
+  <LI><A 
+  href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#singleblockform">6. 
+  Creating a Form with a Single Block</A> 
+  <UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#creatingnewblock">6.1 
+    Creating a New Block</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#layouteditor">6.2 
+    The Layout Editor</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#displayingproperties">6.3 
+    Displaying Properties</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#savingcompilingrunning">6.4 
+    Saving, Generating and Running Forms</A> 
+    <UL>
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#savingaform">6.4.1 
+      Saving a Form</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#compilingaform">6.4.2 
+      Compiling/Building a Form</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#runningaform">6.4.3 
+      Running a Form</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#querybyexample">6.4.4 
+      Query By Example</A> </LI></UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#exercise_simpleform">6.5 
+    Exercise: Creating a Single Block Form</A> </LI></UL>
+  <LI><A 
+  href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#creatingmasterdetail">7. 
+  Creating a Master-Detail Form</A> 
+  <UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#masterdetailrelationship">7.1 
+    The Master-Detail Relationship</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#stepscreatemasterdetail">7.2 
+    Steps to Create a Master-Detail Form</A> 
+    <UL>
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#createmasterblock">7.2.1 
+      Create the Master Block</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#createdetailblock">7.2.2 
+      Create the Detail Block</A> </LI></UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#relationproperties">7.3 
+    Relation Properties of a Master-Detail Form</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#programunits">7.4 
+    Program Units in a Master-Detail Form</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#extendingmasterdetail">7.5 
+    Extending Master-Detail Forms</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#exercise_masterdetail">7.6 
+    Exercise: Creating a Master/Detail Form</A> </LI></UL>
+  <LI><A 
+  href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#listofvalues">8. 
+  List of Values (LOVs) and Non-Base Table Fields</A> 
+  <UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#creatinganlov">8.1 
+    Creating a List of Values</A> 
+    <UL>
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#newlovobject">8.1.1 
+      Create a new LOV Object</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#specifyquerytext">8.1.2 
+      Specify the LOV Query Text</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#specifycolumnmapping">8.1.3 
+      Specify the Column Mapping Properties</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#attachlovtoitem">8.1.4 
+      Attach the LOV to the item</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#testlov">8.1.5 
+      Test the LOV</A> </LI></UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#nonbasetablefields">8.2 
+    Non-Base Table fields</A> 
+    <UL>
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#addinganewitem">8.2.1 
+      Adding a New Item to an Existing Data Block</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#creatingtriggers">8.2.2 
+      Creating a Trigger</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#changenewlov">8.2.3 
+      Create a new List of Values</A> </LI></UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#exercise_lov">8.3 
+    Exercise: Creating an LOV and Non-Base Table field</A> </LI></UL>
+  <LI><A 
+  href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#storedprocedures">9. 
+  Oracle Forms Program Units and Stored Program Units</A> 
+  <UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#creatingformsprocedures">9.1 
+    Creating Procedures in Oracle Forms</A> 
+    <UL>
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#addnewitemtoemployee">9.1.1 
+      Add a new item to the EMPLOYEE Block</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#createprocedureotherdeptmembers">9.1.2 
+      Create a Procedure to Count Other Department Members</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#createatriggertocallprocedure">9.1.3 
+      Create a Trigger to Call the Procedure</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#savecopmileandruntheform">9.1.4 
+      Save, Compile and Run the Form</A> </LI></UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#sqlplustoredprocedures">9.2 
+    Creating Stored Program Units (Procedures) in SQL*Plus</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#additionalprocedures">9.3 
+    Additional Stored Procedures and Triggers</A> 
+    <UL>
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#uniqueidtable">9.3.1 
+      Generating unique or consecutive identifiers using the table</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#uniqueidsequence">9.3.2 
+      Generating unique or consecutive identifiers using an Oracle Sequence</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#checkingconstraintsclient">9.3.3 
+      Checking constraints at the client</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#addingalerts">9.3.4 
+      Adding Alerts (Pop-up Messages)</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#autoquery">9.3.5 
+      Automatic Forms Query</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#populatewithdefaults">9.3.6 
+      Populate items with default values</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#commandbuttons">9.3.7 
+      Attaching functionality to command buttons</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#passingparameters">9.3.8 
+      Passing parameters between forms</A> </LI></UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#proceduretriggerexercises">9.4 
+    Exercise: Procedures and Triggers</A> </LI></UL>
+  <LI><A 
+  href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#oraclereportsbasics">10. 
+  Oracle Reports Basics</A> 
+  <UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#repstartingwindows">10.1 
+    Starting Developer tools under Windows</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#repobjectnavigator">10.2 
+    The Oracle Reports Object Navigator</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#repcreatingresports">10.3 
+    Creating Reports in Oracle Reports</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#repcreatingsingletablereports">10.4 
+    Creating a Single-Table Report</A> 
+    <UL>
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#repspecifydatamodel">10.4.1 
+      Specify the Data Model and Layout</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#repsavinggeneratingrunning">10.4.2 
+      Saving, Generating and Running the Report</A> </LI></UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#exercise_simplereport">10.5 
+    Exercise: Creating a Report</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#repmasterdetail">10.6 
+    Creating a Master-Detail Report</A> 
+    <UL>
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#repmddatamodel">10.6.1 
+      Specify the Master-Detail Data Model and Layout</A> 
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#repmdsavinggenerating">10.6.2 
+      Saving and Running the Master-Detail Report</A> </LI></UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#exercise_masterdetailreport">10.7 
+    Exercise: Creating a Master-Detail Report</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#parameterforms_reports">10.8 
+    Parameter forms in Oracle Reports</A> 
+    <UL>
+      <LI><A 
+      href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#customparamform">10.8.1 
+      Building a Custom Parameter Form</A> </LI></UL></LI></UL>
+  <LI><A 
+  href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#creatingmenusinoracleforms">11 
+  Creating Menus in Oracle Forms</A> 
+  <UL>
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#menuhierarchy">11.1 
+    The Oracle Forms Menu Hierarchy</A> 
+    <LI><A 
+    href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#creatingcusomtmenu">11.2 
+    Creating a Custom Menu</A> </LI></UL><!--
+  <LI> <A HREF="#graphicschartwiz">12 Graphics and the Chart Wizard</A>
+  <UL>
+    <LI> <A HREF="#graphicschartwiz">12.1 Graphics and the Chart Wizard</A>
+    <LI> <A HREF="#exaddingcharttoform">12.2 Exercise: Adding a Chart to a Report</A>
+  </UL>
+  <LI> <A HREF="#schemabuilder">13 Oracle Schema Builder</A>
+  <UL> 
+    <LI> <A HREF="#creatingschemaobjects">13.1 Creating New Schema Objects</A>
+    <LI> <A HREF="#displayingexistingschemaobjects">13.2 Displaying Existing Schema Objects</A>
+    <LI> <A HREF="#addingrelationshipsbetweentables">13.3 Adding Relationships between Tables</A>
+  </UL>
+--></LI></UL>
+<HR>
+<A name=introduction></A>
+<H2>1. Introduction</H2><!-- This tutorial is copyrighted by Richard Holowczak (C) 1997-2004 richard_holowczak@baruch.cuny.edu ** DO NOT COPY -->
+<P>This tutorial introduces the Oracle9i Developer Suite Release 2 (August, 
+2002) that includes Oracle Forms 9.0 and Oracle Reports 9.0. The main objectives 
+are to demonstrate and provide hands-on instructions on creating and modifying 
+data entry and query forms in various configurations, reports and graphics. <!--
+In addition, the final section gives some instructions
+on the use of the Schema Builder.
+-->
+<P>Caveats: Please note that Oracle tends to change things like menu items, 
+prompts and other small things between each major (certainly) and often minor 
+release. Depending on the exact release of Oracle9i Developer Suite you have, 
+you may find some small discrepencies between what is shown in this tutorial and 
+what you see on your screen. <A name=prerequisites></A>
+<H2>2. Prerequisites</H2><!-- This tutorial is copyrighted by Richard Holowczak (C) 1997-2004 richard_holowczak@baruch.cuny.edu ** DO NOT COPY -->Before 
+following this tutorial, a student must have a valid user account in an Oracle 
+server or a local installation of an Oracle database. Contact your DBA or 
+systems administrator to learn the details of how Oracle server is set up in 
+your organization. 
+<P>If you have a local instance of the Oracle database, please do not use the 
+SYSTEM (DBA) account to practice development. There is a good chance you can 
+corrupt the entire database by mistake. You are much better off making use of 
+the SCOTT/TIGER schema or (even better) creating a separate user (schema) for 
+this tutorial work and for practicing. 
+<P>One more word of caution. Oracle has designed Oracle9i as a three tier 
+architecture. This means that the database (Oracle9i server) should run on one 
+server, the application Server (oracle9i Application Server or Oracle9iAS 
+Containers for Java (OC4J) server as used here) runs on a second server and the 
+client application (written in Oracle Forms and Reports for example) runs on a 
+third machine. One can get all of these components to run on the same machine, 
+but it requires both a fast processor and a lot of RAM. Here is one example: 
+<P>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TH>Service/Application 
+    <TH>RAM consumed while running 
+  <TR>
+    <TD>Oracel9i Database (minimal instance) 
+    <TD>140 MB 
+  <TR>
+    <TD>Oracle9i Forms Builder 
+    <TD>42 MB 
+  <TR>
+    <TD>Oracle9i Reports Builder 
+    <TD>80 MB 
+  <TR>
+    <TD>Oracle9i Forms Runtime web launcher 
+    <TD>12 MB 
+  <TR>
+    <TD>OC4J Service (Java) 
+    <TD>36 MB 
+  <TR>
+    <TD>Netscape 4.7 running a form 
+    <TD>35 MB 
+  <TR>
+    <TD>Oracle9i SQL*Plus 
+    <TD>8 MB 
+  <TR>
+    <TD>&nbsp; &nbsp; <I>Total</I> 
+    <TD><B>353 MB</B> </TR></TBODY></TABLE>
+<P>Therefore, having at least 512 MB of real RAM (not swap space) is a 
+necessity. 1 GB of RAM will yield significantly better performance. If you have 
+less than 512 MB of RAM, you should create a swap file (Virtual memory) of at 
+least 1 GB. 
+<P>The student should also be familiar with Oracle's SQL*Plus tools and should 
+be comfortable connecting to a database schema, creating tables, inserting and 
+manipulating data (with SQL INSERT, UPDATE and DELETE statements) and with 
+querying table data (with SQL SELECT statements). 
+<P>This tutorial relies on the existence of a few tables in the student's 
+schema. Use the Oracle SQL*Plus tool to create three tables named 
+<TT>EMPLOYEE</TT>, <TT>DEPARTMENT</TT> and <TT>DEPENDENT</TT> with the following 
+attributes. Note: This schema originally appears in the book: Ramez Elmasri and 
+Shamkant B. Navathe, <I>Fundamentals of Database Systems</I>. Second Edition. 
+Addison-Wesley Pub Co, 1994. 
+<P>
+<TABLE cellPadding=2 align=left border=1>
+  <TBODY>
+  <TR>
+    <TD colSpan=2><B>EMPLOYEE</B> Table 
+  <TR>
+    <TH>Attribute</TH>
+    <TH>Data Type</TH>
+  <TR>
+    <TD>FNAME 
+    <TD>VARCHAR(8) 
+  <TR>
+    <TD>MINIT 
+    <TD>VARCHAR(2) 
+  <TR>
+    <TD>LNAME 
+    <TD>VARCHAR(8) 
+  <TR>
+    <TD>SSN 
+    <TD>NUMBER(12) 
+  <TR>
+    <TD>BDATE 
+    <TD>DATE 
+  <TR>
+    <TD>ADDRESS 
+    <TD>VARCHAR(30) 
+  <TR>
+    <TD>SEX 
+    <TD>VARCHAR(1) 
+  <TR>
+    <TD>SALARY 
+    <TD>NUMBER(7) 
+  <TR>
+    <TD>SUPERSSN 
+    <TD>NUMBER(12) 
+  <TR>
+    <TD>DNO 
+    <TD>NUMBER(2) </TR></TBODY></TABLE>
+<TABLE cellPadding=2 border=1>
+  <TBODY>
+  <TR>
+    <TD colSpan=2><B>DEPARTMENT</B> Table 
+  <TR>
+    <TH>Attribute</TH>
+    <TH>Data Type</TH>
+  <TR>
+    <TD>DNAME 
+    <TD>VARCHAR(15) 
+  <TR>
+    <TD>DNUMBER 
+    <TD>NUMBER(2) 
+  <TR>
+    <TD>MGRSSN 
+    <TD>NUMBER(12) 
+  <TR>
+    <TD>MGRSTARTDATE 
+    <TD>DATE </TR></TBODY></TABLE>
+<TABLE cellPadding=2 border=1>
+  <TBODY>
+  <TR>
+    <TD colSpan=2><B>DEPENDENT</B> Table 
+  <TR>
+    <TH>Attribute</TH>
+    <TH>Data Type</TH>
+  <TR>
+    <TD>ESSN 
+    <TD>NUMBER(12) 
+  <TR>
+    <TD>DEPENDENT_NAME 
+    <TD>VARCHAR(10) 
+  <TR>
+    <TD>SEX 
+    <TD>VARCHAR(1) 
+  <TR>
+    <TD>BDATE 
+    <TD>DATE 
+  <TR>
+    <TD>RELATIONSHIP 
+    <TD>VARCHAR(10) </TR></TBODY></TABLE><BR clear=all><BR>
+<P>
+<P>The following CREATE TABLE and INSERT statements can be used to create the 
+above tables and insert some baseline data using the Oracle SQL*Plus tool. Note 
+that different versions of Oracle accept either 2 digit or 4 digit year 
+designations in the DATE datatype. It seems the latest versions (Oracle8 and 
+Oracle8i) default to accept 4 digit years. The INSERT statements below should be 
+formatted accordingly. 
+<P>
+<TABLE cellPadding=4 border=1>
+  <TBODY>
+  <TR>
+    <TD><FONT size=-2><XMP>CREATE TABLE employee
+  (FNAME           VARCHAR2(15),
+   MINIT           VARCHAR2(2),
+   LNAME           VARCHAR2(15),
+   SSN             NUMBER(12) NOT NULL,
+   BDATE           DATE,
+   ADDRESS         VARCHAR2(35),
+   SEX             VARCHAR2(1),
+   SALARY          NUMBER(7) NOT NULL,
+   SUPERSSN        NUMBER(12),
+   DNO             NUMBER(2) NOT NULL) ;
+
+ALTER TABLE employee ADD CONSTRAINT pk_employee
+PRIMARY KEY (ssn);
+
+CREATE TABLE DEPARTMENT
+  (DNAME          VARCHAR2(15),
+   DNUMBER        NUMBER(2) NOT NULL,
+   MGRSSN         NUMBER(12),
+   MGRSTARTDATE   DATE) ;
+
+ALTER TABLE department ADD CONSTRAINT pk_department
+PRIMARY KEY (dnumber);
+
+CREATE TABLE DEPENDENT 
+(ESSN                   NUMBER(12),
+ DEPENDENT_NAME         VARCHAR2(15),
+ SEX                    VARCHAR2(1),
+ BDATE                  DATE,
+ RELATIONSHIP           VARCHAR2(12)) ;
+
+ALTER TABLE dependent ADD CONSTRAINT pk_dependent
+PRIMARY KEY (essn, dependent_name);
+
+ALTER TABLE dependent ADD CONSTRAINT fk_employee
+FOREIGN KEY (essn) REFERENCES employee (ssn);
+
+ALTER TABLE employee ADD CONSTRAINT fk_department
+FOREIGN KEY (dno) REFERENCES department (dnumber);
+
+
+INSERT INTO DEPARTMENT VALUES ('RESEARCH',       5, 333445555, '22-MAY-1978') ;
+INSERT INTO DEPARTMENT VALUES ('ADMINISTRATION', 4, 987654321, '01-JAN-1985') ;
+INSERT INTO DEPARTMENT VALUES ('HEADQUARTERS',   1, 888665555, '19-JUN-1971') ;
+
+INSERT INTO EMPLOYEE VALUES
+('JOHN','B','SMITH',123456789,'09-JAN-1955','731 FONDREN, HOUSTON, TX', 'M',30000,333445555,5) ;
+INSERT INTO EMPLOYEE VALUES
+('FRANKLIN','T','WONG',333445555,'08-DEC-1945','638 VOSS,HOUSTON TX', 'M',40000,888665555,5) ;
+INSERT INTO EMPLOYEE VALUES
+('ALICIA','J','ZELAYA',999887777,'19-JUL-1958','3321 CASTLE, SPRING, TX', 'F',25000,987654321,4) ;
+INSERT INTO EMPLOYEE VALUES
+('JENNIFER','S','WALLACE',987654321,'20-JUN-1931','291 BERRY, BELLAIRE, TX', 'F',43000,888665555,4) ;
+INSERT INTO EMPLOYEE VALUES
+('RAMESH','K','NARAYAN',666884444,'15-SEP-1952','975 FIRE OAK, HUMBLE, TX', 'M',38000,333445555,5) ;
+INSERT INTO EMPLOYEE VALUES
+('JOYCE','A','ENGLISH',453453453,'31-JUL-1962','5631 RICE, HOUSTON, TX', 'F',25000,333445555,5);
+INSERT INTO EMPLOYEE VALUES
+('AHMAD','V','JABBAR',987987987,'29-MAR-1959','980 DALLAS, HOUSTON, TX', 'M',25000,987654321,4) ;
+INSERT INTO EMPLOYEE VALUES 
+('JAMES','E','BORG',888665555,'10-NOV-1927', '450 STONE, HOUSTON, TX', 'M',55000,NULL,1) ;
+
+INSERT INTO DEPENDENT VALUES (333445555,'ALICE','F','05-APR-1976','DAUGHTER') ;
+INSERT INTO DEPENDENT VALUES (333445555,'THEODORE','M','25-OCT-1973','SON')  ;
+INSERT INTO DEPENDENT VALUES (333445555,'JOY','F','03-MAY-1948','SPOUSE');
+INSERT INTO DEPENDENT VALUES (123456789,'MICHAEL','M','01-JAN-1978','SON');
+INSERT INTO DEPENDENT VALUES (123456789,'ALICE','F','31-DEC-1978','DAUGHTER');
+INSERT INTO DEPENDENT VALUES (123456789,'ELIZABETH','F','05-MAY-1957','SPOUSE');
+INSERT INTO DEPENDENT VALUES (987654321,'ABNER','M','26-FEB-1932','SPOUSE');
+
+</XMP></FONT></TD></TR></TBODY></TABLE>
+<P>Make certain you issue a <TT>COMMIT;</TT> after inserting these records 
+otherwise your forms and reports will not see the uncommitted data. Existing out 
+of SQL*Plus will also issue a COMMIT for you automatically. 
+<P><A name=developer2000tools></A>
+<H2>3. Oracle9i Developer Suite Tools</H2><!-- This tutorial is copyrighted by Richard Holowczak (C) 1997-2004 richard_holowczak@baruch.cuny.edu ** DO NOT COPY -->Oracle9i 
+Developer Suite contains the following main components: 
+<OL>
+  <LI>Oracle9i Forms - For designing data entry forms. 
+  <LI>Oracle9i Reports - For designing reports. 
+  <LI>Oracle9i JDeveloper - For developing Java applications or applets 
+  <LI>Oracle9i Warehouse Builder and Discoverer - OLAP tools for creating data 
+  warehouses and OLAP user interfaces 
+  <LI>Oracle9i Designer - Oracle's CASE tools that include modeling and code 
+  generation capabilities. </LI></OL>
+<P>This tutorial covers the Developer Forms and Reports components. 
+<P>In the following section, the procedures to run Oracle Forms under MS Windows 
+(98/NT/2000/XP) will be given. <A name=startingwindows></A>
+<H3>3.1 Starting Developer tools under Windows</H3>
+<P>A typical installation of Oracle9i Developer Suite (9iDS) creates several 
+folders under the Start Programs menu. The two main folders are both named after 
+the Oracle Home you chose to install 9iDS under. <A 
+href="http://cisnet.baruch.cuny.edu/holowczak/oracle/install/9ids/">A brief 
+guide to installing 9iDS can be found here</A>: 
+<TT>http://cisnet.baruch.cuny.edu/holowczak/oracle/install/9ids/</TT> 
+<P>Pay particular attention to the post-installation steps regarding how the 
+Oracle9iAS Containers for Java (OC4J) service runs and on how to install the 
+JInit plugin for your web browser. 
+<P>The main 9iDS programs represented in this tutorial are found under the 
+Oracle9i Developer Suite home and include the following items:<BR><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/9ids_menu_items.jpg" 
+align=left> 
+<P>To run the 9iDS Forms Builder under Windows , click on the <TT>Start -&gt; 
+Programs -&gt; Oracle9i Developer Suite - Home -&gt; Forms Developer -&gt; Form 
+Builder</TT> menu item. 
+<P>To run the 9iDS Reports Builder under Windows , click on the <TT>Start -&gt; 
+Programs -&gt; Oracle9i Developer Suite - Home -&gt; Reports Developer -&gt; 
+Reports Builder</TT> menu item. 
+<P><BR clear=all>
+<P>For older versions of Oracle Developer the start menu would might have items 
+such as: <TT>Developer 2000 R2.1</TT>, <TT>Developer 2000 R2.0</TT>, 
+<TT>Devloper 6i</TT> and so on. 
+<P>For Oracle9iDS installs in UNIX or Linux, use the following scripts: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>Forms Builder 
+    <TD>f90desm.sh 
+  <TR>
+    <TD>Reports Builder 
+    <TD>rwbuilder.sh </TR></TBODY></TABLE>
+<P>Note: In your organization, 9iDS may be installed or configured slightly 
+differently. In particular, the programs may be grouped under different menus. 
+Please contact your DBA or systems administrator, or refer to any local 
+documentation to learn how to run the 9iDS tools. 
+<P><A name=formsdesignermain></A>
+<H2>4. The 9iDS Forms Builder Main Screen</H2><!-- This tutorial is copyrighted by Richard Holowczak (C) 1997-2004 richard_holowczak@baruch.cuny.edu ** DO NOT COPY -->Once 
+the appropriate menu item has been clicked on (for Windows), the Oracle Forms 
+Builder Object Navigator will appear. <A name=objectnavigator></A>
+<H3>4.1 Oracle Forms Object Navigator</H3>After starting up Oracle Forms, the 
+main screen will be presented. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/9ids_forms_main.jpg"> 
+
+<P>This screen is called the <I>Object Navigator</I> and displays all of the 
+form elements, data blocks, menu items, user defined code libraries, built in 
+procedures and functions, and database objects (tables, views). The display is 
+in the form of a collapsible tree. In general, clicking on a <B>+</B> will 
+expand the current item to show its details. Clicking on a <B>-</B> will 
+collapse the current list details. 
+<P>
+<P>The menu bar across the top provides access to almost all of the features of 
+Oracle Forms. 
+<UL>
+  <LI>The <TT>File</TT> menu has options to create, open, save and print forms. 
+  This menu also includes an option to connect to the database and the 
+  Administration option that is used to compile forms and menu code. The last 
+  option on the <TT>File</TT> menu is the <TT>Exit</TT> option that will exit 
+  Oracle Forms Builder. 
+  <LI>The <TT>Edit</TT> menu has options to cut, copy and paste objects, to 
+  invoke an editor and to undo an operation. 
+  <LI>The <TT>View</TT> menu toggles the object navigator display between visual 
+  elements and ownership elements. 
+  <LI>The <TT>Layout</TT> menu has items that control objects on a form much in 
+  the way a drawing package does. Objects can be resized, moved, painted and 
+  otherwise manipulated using items on this menu. 
+  <LI>The <TT>Program</TT> menu has items that control form compilation, 
+  generation and execution (Run). Triggers, Procedures and other PL/SQL code can 
+  also be created from this menu. The <TT>Smart Triggers</TT> menu option 
+  displays the most commonly used triggers according to the type of object 
+  currently selected in the object navigator. 
+  <LI>The <TT>Debug</TT> menu has options for debugging forms as they are 
+  running. It includes menu items to establish break points and to step over the 
+  execution of code one line at a time. 
+  <LI>The <TT>Tools</TT> menu has options to switch between several different 
+  screens including the Layout editor, Menu editor and Object Navigator. There 
+  are also several wizards that can be launched from this menu including the 
+  Data Block wizard, the Layout wizard, and the LOV (List of Values) wizard. 
+  <LI>The <TT>Windows</TT> menu displays menu items for each of the windows you 
+  have open. By default, only one item - the Object Navigator - is displayed. 
+  <LI>Finally, the <TT>Help</TT> menu can be used to display help topics. 
+</LI></UL>
+<P>By default, a button bar is provided on the left hand side of the Object 
+Navigator window. Each button duplicates some functionality on the menus. For 
+example, clicking on the top icon (an opened folder) is the same as pulling down 
+the <TT>File</TT> menu and choosing the <TT>Open</TT> option. To see what a 
+button might do if pressed, place the mouse cursor over the button and a short 
+message will appear describing the button's function. 
+<P>As with earlier versions of Developer, in Developer 9.0, a form, report or 
+graphic is generally referred to as a <I>Module</I>. When first starting the 
+Forms Builder, a default module is created called: <TT>MODULE1</TT> 
+<P>The content of the Object Navigator is broken down into 6 major sections: 
+<OL>
+  <LI><TT>Forms</TT> - Contains form objects and all of their sub-objects such 
+  as data blocks, triggers, alerts, canvases, program units (procedures and 
+  functions), parameters and windows. More than one form can be open at a time. 
+  <LI><TT>Menus</TT> - Contains menu objects and all of their sub-objects such 
+  as menu items, parameters and program units. More than one menu can be open at 
+  a time. 
+  <LI><TT>PL/SQL Libraries</TT> - These are libraries of PL/SQL code (stored 
+  either in the database or in <TT>.plb</TT> files). Libraries can be shared 
+  among different forms and among different developers. 
+  <LI><TT>Object Libraries</TT> - These are libraries containing a collection of 
+  objects (anything that can appear on a form). 
+  <LI><TT>Built-in Packages</TT> - Lists all of the packages (PL/SQL procedures) 
+  available by default to all forms, reports, etc. 
+  <LI><TT>Database Objects</TT> - Lists all of the database objects (Tables, 
+  Views, PL/SQL Libraries, and Stored Program Units) in the user's Oracle 
+  database schema. </LI></OL>
+<P>As objects are created, they are displayed under the appropriate section. 
+Context sensitive menus can be displayed for each object by clicking on an 
+object with the right mouse button. 
+<P>
+<P><A name=connectingtodatabase></A>
+<H3>4.2 Connecting to the Database</H3>The first step in working with any of the 
+Developer tools is to establish a connection to an Oracle database. This is 
+accomplished by pulling down the <TT>File</TT> menu and selecting the 
+<TT>Connect</TT> menu item. 
+<P>Fill in your Oracle Username and Oracle Password (press the tab key to move 
+between the fields). 
+<P>For the <TT>Database</TT> field, type in the service name for your Oracle 
+database. For example, if you are using Personal Oracle Lite, the 
+<TT>Database:</TT> would be <TT>ODBC:POLITE</TT>. If you have a local database 
+running on the same machine, you may be able to connect directly to it by 
+leaving this field blank. If you are working in a client/server environment 
+where the Oralce server resides on another machine, you will have to configure 
+the Oracle Net8 middleware to establish a connection with that server. You would 
+then supply the Net8 service name in the Database field. Alternatively, contact 
+your system administrator to learn the service name for your Oracle database and 
+provide that information in the <TT>Database:</TT> field. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/connect.jpg"> 
+
+<P>Click on the <TT>Connect</TT> button to complete the connection (Under some 
+versions of UNIX, the button is labeled <TT>OK</TT>). If the user name or 
+password is mistyped or incorrect, the dialog box will be re-displayed. Be sure 
+to provide your Oracle username and password (not your UNIX host or Local Area 
+Network password). 
+<P>Each time any of the Developer tools are executed, the first step will be to 
+connect to an Oracle database in this fashion. <A name=formsdesign></A>
+<H2>5. Forms Design</H2><!-- This tutorial is copyrighted by Richard Holowczak (C) 1997-2004 richard_holowczak@baruch.cuny.edu ** DO NOT COPY -->A 
+typical database schema contains dozens of tables, each with several columns of 
+various data types. We develop applications (forms, reports, menus, etc.) to 
+make the job of manipulating data in those tables easier for users. In Oracle 
+Forms, a form (or data entry form) acts like a window into the database schema. 
+An individual focuses the attention of the user to one or a few of the tables at 
+a time. In addition, a form can give prompts so the user knows what kind of 
+input is expected and how data is to be entered and manipulated. 
+<P>By default, every form in Oracle Forms has the capability to query existing 
+data in a table, modify existing data and add new data (records) to the table. A 
+form is built up using one or more <I>data blocks</I> that correspond to tables 
+in the database. Fields within the data block correspond to columns in the 
+database table. A data block is similar to a DataWindow object in PowerBuilder. 
+In the following figure, a typical form is shown. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/example_form9ids.jpg"> 
+
+<P>This form has two data blocks, one for the <TT>EMPLOYEE</TT> table, and one 
+for the <TT>DEPENDENT</TT> table. These data blocks are arranged in a 
+<I>Master/Detail</I> setup where a single Employee record (the master) is 
+associated with one or more Dependents records (the details). 
+<P>By default, forms also gives a button bar and a menu. These can be used to 
+scroll through the records in a block, navigate between blocks, set up and 
+perform queries against the tables, insert, update and delete records, clear the 
+form and exit the form. Finally, at the bottom of each form is a status bar that 
+displays any relevant prompts or error messages and an indication of the records 
+in the current data block. 
+<P>There are four main types of forms that can be designed. 
+<TABLE>
+  <TBODY>
+  <TR vAlign=top>
+    <TD><IMG 
+      src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/type1.gif" 
+      align=left> 
+    <TD>Single Block Form. This form contains a single data block 
+      corresponding to a single database table. 
+    <TD><IMG 
+      src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/type2.gif" 
+      align=left> 
+    <TD>Single block Form with lookup field. This form contains a single data 
+      block corresponding to a single database table with the addition of one or 
+      more fields that display data from some other tables. Such data is "looked 
+      up" when the form runs. 
+  <TR vAlign=top>
+    <TD><IMG 
+      src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/type3.gif" 
+      align=left> 
+    <TD>Master/Detail Form. This form contains two data blocks that are 
+      arranged in a master/detail (one to many) relationship. 
+    <TD><IMG 
+      src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/type4.gif" 
+      align=left> 
+    <TD>Master/Detail Form with lookup fields. This form is similar to the 
+      Master/Detail but has the additional lookup fields in the master and/or 
+      detail blocks. </TR></TBODY></TABLE>
+<P>There are additional variations such as a Master/Detail/Detail form with 3 
+blocks and so on. However, the four types illustrated above are the most common 
+ones. In this tutorial, all four types will be demonstrated. 
+<P><A name=singleblockform></A>
+<H2>6. Creating and Running a Form with a Single Block</H2><!-- This tutorial is copyrighted by Richard Holowczak (C) 1997-2004 richard_holowczak@baruch.cuny.edu ** DO NOT COPY -->In 
+this section, the basic steps for creating a basic data entry and query form for 
+a single database table will be covered. 
+<P>In general, a <I>Data Block</I> on a form corresponds to a table in the 
+database. This is called the <I>Base Table</I> for the data block. For each 
+table displayed on the form, a new data block will be created. For this example, 
+only one data block will be created for the <TT>EMPLOYEE</TT> table. 
+<P>A block appears on a <I>Canvas</I> which is contained in a <I>Window</I>. 
+There are many options to control multiple canvas views and multiple windows per 
+form. In these examples, we concentrate on a simple arrangement using a single 
+canvas and a single window. 
+<P>There are a number of ways to create a data block. One way is to manually 
+define the base table and columns, and their positions on the form. While this 
+is possible, it can be very tedious. 
+<P>Oracle Forms Builder provides two main wizards (programs that guide the 
+developer in performing common tasks) to create data blocks: 
+<OL>
+  <LI>The <I>Data Block wizard</I> guides the developer through the steps of 
+  choosing a base table and columns. 
+  <LI>The <I>Layout wizard</I> guides the developer through arranging the base 
+  table and columns on the form. </LI></OL><A name=creatingnewblock></A>
+<H3>6.1 Creating a New Block</H3>To create a new block, pull down the 
+<TT>Tools</TT> menu and select the <TT>Data Block wizard</TT> menu item. The 
+following dialog box will appear: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_dbwizard1.jpg"> 
+<BR clear=all>
+<P>Click on the Next button. The following dialog box will appear: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_dbwizard2.jpg"> 
+<BR clear=all>
+<P>There are two types of data blocks that can be created. Table/View and 
+Procedures. For this example, choose Table/View and click on the Next button. 
+<P>The next step is to choose a base table and columns that will belong to the 
+data block. The following dialog box should appear: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_dbwizard3.jpg"> 
+<BR clear=all>
+<P>To associate a database table with the block, click on the <TT>Browse...</TT> 
+button to the right of the Table or View field. The following dialog box will 
+pop up. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/table_list.jpg"> 
+
+<P>Make sure the <TT>Current User</TT> and <TT>Tables</TT> buttons are selected 
+A list of your tables will appear. If no list of tables appears, make certain 
+you have created the tables and inserted data as directed in the <A 
+href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#prerequisites">Prerequisites</A> 
+section 2. If you are still logged in to SQL*Plus, make certain you issue a 
+"COMMIT;" statement to commit all of the changes to the schema. 
+<P>Highlight the name of the database table (EMPLOYEE in this example) and click 
+on the <TT>OK</TT> button. 
+<P>The wizard should reappear with the name of the table and a list of available 
+columns displayed. To include a column in the data block, highlight the column 
+name and click on the right arrow. The name of the column should move over to 
+the right hand side. 
+<P>For this example, select the FNAME, LNAME, SSN, BDATE, SALARY and DNO as in 
+the following figure: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_dbwizard4.jpg"> 
+<BR clear=all>
+<P>Click on the Next button, a dialog box will appear allowing you to name the 
+data block. In general, it is best to simply use the name of the table as the 
+name of the data block as shown below: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_dbwizard5.jpg"> 
+<BR clear=all>
+<P>Click the Next button once more and the final dialog box for the Data Block 
+wizard will appear: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_dbwizard6.jpg"> 
+<BR clear=all>
+<P>In this example, we want to continue on to the Layout wizard in order to 
+specify how the new form will appear. Make sure the <TT>Create the block, then 
+call the Layout wizard</TT> option is selected and click on the Finish button. 
+<P>The data block will be created (as can be seen in the Object Navigator in the 
+background). The objects created include the EMPLOYEE data block containing 
+items for each of the columns that were selected in the third step of the 
+wizard. 
+<P>Once the new data block and items are created, the first dialog box in the 
+Layout wizard will appear: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lowizard1.jpg"> 
+<BR clear=all>
+<P>Click on the Next button and the following dialog box will appear: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lowizard2.jpg"> 
+<BR clear=all>
+<P>The layout for a data block may be placed on any existing canvas. In this 
+case, there are no existing canvases so the only option available is to create a 
+new canvas. 
+<P>Click on the Next button to display the following dialog box: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lowizard3.jpg"> 
+<BR clear=all>
+<P>In this dialog box, the columns from a given base table on a data block can 
+be added to the layout. Since we are laying out the EMPLOYEE data block, it is 
+highlighted automatically. Move all of the Available Columns over to the 
+Displayed Items side by clicking on the double right arrow and click on the Next 
+button. 
+<P>In this dialog box, the field labels, field sizes and field heights can be 
+altered. Change the field labels as shown below and click on the Next button: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lowizard4.jpg"> 
+<BR clear=all>
+<P>The following dialog box will appear: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lowizard5.jpg"> 
+<BR clear=all>
+<P>There are two main styles for forms. <A name=tabularlayout></A>A 
+<B>Tabular</B> layout arranges the field labels across the top of the form with 
+a number of records below as in a spreadsheet. 
+<P>A <B>Form</B> layout places the field labels to the left of the fields. 
+Generally only one record is displayed at a time. 
+<P>For this example, choose a Form layout and click on the Next button. 
+<P>In the following dialog box, type a title for the frame (around the data 
+block) and check the option to include a scroll bar. 
+<P><A name=numberofrecords></A>The number of records displayed for a <I>Form</I> 
+layout should be 1. The number of records displayed in a <I>Tabular</I> layout 
+can be more than 1. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lowizard6.jpg"> 
+<BR clear=all>
+<P>Click on the Next button and the final dialog box for the Layout wizard will 
+appear. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lowizard7.jpg"> 
+<BR clear=all>
+<P>Click on the Finish button to create the layout. A new Canvas will be created 
+with the new block and all of the form items added in the layout wizard. 
+<P>At this point the Layout Editor should appear and the new form with the data 
+block will appear. 
+<P><A name=layouteditor></A>
+<H3>6.2 The Layout Editor</H3>To view the actual form and its blocks and fields, 
+pull down the <TT>Tools</TT> menu and select the <TT>Layout Editor</TT> menu 
+item (if it not already displayed). 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_layouteditor.jpg"> 
+
+<P>In the Layout Editor, fields and labels can be moved around by clicking and 
+dragging. Other text, lines and boxes, etc. can be added using the tool palette 
+on the left side of the window. 
+<P>Some common operations on the Layout Editor include: 
+<UL>
+  <LI>Move a field or a field label by clicking and dragging the item with the 
+  left mouse button. 
+  <LI>Change the text of a label by choosing the text tool button <IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/texttoolbutton.gif"> 
+  from the tool bar and then clicking on a label. To stop editing the label, 
+  click anywhere outside of the label text. 
+  <LI>Add text to the block by choosing the text tool button <IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/texttoolbutton.gif"> 
+  from the tool bar and then clicking on a open area. Type the new text. To 
+  change the font, highlight the text, pull down the <TT>Format</TT> menu and 
+  click on the <TT>Font</TT> menu item.<BR>To change the text color of a label, 
+  use the pointer tool <IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/pointertoolbutton.gif"> 
+  to highlight a label and then click on the <TT>Text Color</TT> palette button 
+  <IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/textcolortoolbutton.gif"> 
+  to choose the color. 
+  <LI>Change the width of a field by clicking on the field. Then drag one of the 
+  handles (small black boxes around the field) to re-size the field.<BR><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/resizefield.gif"><BR>For 
+  exampe, on the employee form, you may wish to make the FNAME field wider to 
+  accomodate longer first names. 
+  <LI>Use the Zoom In tool <IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/zoomin.gif"> 
+  to zoom in to the form (e.g., make everything appear larger). Or use the Zoom 
+  Out tool <IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/zoomout.gif"> 
+  to zoom out of the form. </LI></UL><A name=displayingproperties></A>
+<H3>6.3 Displaying Properties</H3>
+<P>While in the Layout Editor, double clicking on an object will bring up that 
+object's <I>properties</I>. Optionally, clicking on an object with the right 
+mouse button will bring up a small menu which has the Properties menu item on 
+it. The following figure shows the properties for the <TT>FNAME</TT> item. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_properties.jpg"> 
+
+<P>Each type of object has a slightly different set of properties. For example, 
+double clicking on the EMPLOYEE data block in the Object Navigator (pull down 
+the Tools menu and choose Object Navigator) will display that data block's 
+properties. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_blockproperties.jpg"> 
+
+<P>Some properties of interest for a data block include: 
+<UL>
+  <LI><B>WHERE Clause</B> - specify a WHERE clause to filter the selection of 
+  rows from the base table. 
+  <LI><B>ORDER BY Clause</B> - specify an ORDER BY clause to alter the displayed 
+  order of the records. 
+  <LI><B>Delete Allowed, Insert Allowed, Query Allowed and Update Allowed</B> - 
+  toggle these properties to allow or prevent the action. For example, setting 
+  <B>Delete Allowed</B> to <TT>FALSE</TT> prevents users from deleting records 
+  from the corresponding base table using this form. 
+  <LI>There are numerous other properties that affect the fonts, colors, size 
+  and position of objects in the block. </LI></UL>
+<P><A name=savingcompilingrunning></A>
+<H3>6.4 Saving, Compiling and Running Forms</H3>Forms can be saved in files in a 
+directory of your choosing. The "source code" for a form is stored in a file 
+with a <TT>.fmb</TT> extension. <I>Compiled</I> forms have a <TT>.fmx</TT> 
+extension. 
+<P>Under MS Windows, forms can be saved in a folder (subdirectory) on the local 
+hard disk, on a file server or on a floppy disk. It is desirable to maintain 
+separate subdirectories (folders) for forms associated with different projects. 
+One significant item to be aware of is that Oracle Forms will have difficulty 
+running any form saved in a folder that has spaces or punctuation other than the 
+underscore character in the name. For example, it is common in Windows to just 
+save files in "My Documents". However, since this has a space in the name, the 
+form will not run. 
+<P>Therefore, if you are developing on a local machine, it is recommended that 
+you at least make a simple directory such as <TT>C:\forms</TT> or 
+<TT>A:\forms</TT> if using a floppy disk and save all forms files there. <A 
+name=savingaform></A>
+<H4>6.4.1 Saving a Form</H4>To save a form, pull down the <TT>File</TT> menu and 
+select the <TT>Save</TT> menu item. 
+<P>Under MS Windows, this dialog box looks like: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/winsavefile.gif"> 
+
+<P>
+<P>Note that in your company or organization, forms and other files may have to 
+be saved on floppy disk or in a special directory. The above figure is simply an 
+example. 
+<P><B>It is critical that you do not save the file with spaces in the file 
+name</B>. In addition, you should save the files ina local directory where the 
+directory name(s) have no spaces in the them. If you save the file in "My 
+Documents" for example, or on the Windows desktop, you will be unable to run or 
+test the forms. 
+<P>Fill in a file name in the <TT>File Name:</TT> field. Be sure it contains no 
+spaces and that it ends with <TT>.fmb</TT> 
+<P>Click on the <TT>Save</TT> button to save the file. For this example, use the 
+file name <TT>employee.fmb</TT> 
+<P>To save this form on a floppy disk in the <TT>A:</TT> drive, use the file 
+name: <TT>A:\employee.fmb</TT> 
+<P>To enhance portability of forms across different operating systems, use file 
+names that begin with a letter, contain no spaces or punctuation (except for the 
+underscore character), have all lower case letters and are relatively short. 
+<P><B>Reminder:</B> Do not use spaces in the names of the file or the names of 
+any folders (directories). 
+<P>If you are working on a form and wish to save it under a <I>different</I> 
+file name, follow the same steps as above, only select the <TT>Save As</TT> menu 
+item in place of the <TT>Save</TT> menu item. For example, if you have finished 
+working on the Employee form and wish to save off a copy before adding some code 
+or programming some program units, the <TT>Save As</TT> menu item can be used to 
+save off a copy before proceeding. 
+<P><A name=compilingaform></A>
+<H4>6.4.2 Compiling/Building a Form</H4>Before a form can be executed (run), it 
+must be <I>Compiled</I> and <I>Built</I>. Compiling runs a PL/SQL compiler on 
+all of the procedures and triggers in the form. Building (or compiling the file) 
+creates the <TT>.fmx</TT> file that is then used to run the form. 
+<P>To compile a form, first make sure the form is saved. Pull down the 
+<TT>Program</TT> menu and select the <TT>Compile Module</TT> menu item. 
+<P>If a form has errors (e.g., in the PL/SQL code, or if the database schema 
+changes) they will be displayed in a window as they are encountered. A record of 
+the compilation process, including error messages, is kept in a file with a 
+<TT>.err</TT> extension. For example, if the form is named <TT>employee</TT> 
+then the record of the compilation will be stored in <TT>employee.err</TT> 
+<P><!--
+To <I>Build</I> the <TT>.fmx</TT> file for
+a form, pull down the <TT>File</TT>
+menu, click on the <TT>Administration</TT> menu
+item and then choose <TT>Compile File</TT> from
+the fly-out menu. If the forms generation is
+successful, the phrase <I>Module built
+successfully</I> will appear on the status bar
+at the bottom of the screen.
+-->
+<P>Alternatively, Oracle Forms defaults to automatically compiling the form each 
+time it is executed (run) from the forms Builder as will be demonstrated in the 
+next step. For more details on the default behavior, pull down the 
+<TT>Tools</TT> menu and check the <TT>Preferences</TT> menu item. 
+<P><A name=runningaform></A>
+<H4>6.4.3 Running a Form</H4>
+<P>As discussed in the introduction section, Oraclce9i Forms are intended to urn 
+in a three tier architecture. The database acts as the back-end tier. The 
+Oracle9iAS Containers for Java (OC4J) service acts as the middle tier and a web 
+browser (Internet Explorer 5.x or above or Netscape Navigator 4.7 or above) 
+takes on the role of the user-interface tier. 
+<P>Unless this environment has already been established, a local client-side 
+OC4J service may be used in place of the middle tier. 
+<P>Before running a form, the OC4J service should be started. Use the Start Menu 
+to navigate to: <TT>Start -&gt; Programs -&gt; Oracle9i Developer Suite - Home 
+-&gt; Forms Developer -&gt; Start IC4J Instance</TT> <BR>A Command prompt will 
+open (in Windows 2000) similar to the following: 
+<P><IMG alt="OC4J Running" 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/oc4j_started.jpg"> 
+
+<P>Note that by default, OC4J runs on port 8888. If this conflicts with another 
+service or if you have firewall software that prevents opening up such ports, 
+you will need to change the configuration of either OC4J, your firewall software 
+or both. 
+<P>If you receive an error when running OC4J, it may be because another OC4J 
+instance is already running. If you are uncertain, save your work and reboot the 
+PC. Then run a single instance of OC4J. 
+<P>With OC4J configured and running, and the form designed and saved, it can be 
+executed. To run the form, pull down the <TT>Program</TT> menu and select the 
+<TT>Run Form</TT> menu item. This will launch your default web browser which 
+will then connect to OC4J (port 8888) on the local machine. Oracle's JInitiator 
+will load and the form should appear. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_running.jpg"> 
+
+<P>
+<P>Use the various menus and items to query the form, enter new data and save 
+new and changed data. Please read the section below on Query By Example to see 
+how to query data from the underlying tables and populate the fields in the 
+form. 
+<P>If OC4J service is not running, an error message similar to the following 
+will be displayed: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/oc4j_not_running.jpg"> 
+
+<P>If you see error FRM-10142, make sure the OC4J Instance is running. Look in 
+the Windows Start Menu folder where you started Forms Builder. There should be a 
+memu item called: <TT>Start OC4J Instance</TT>. Run that program (a DOS box will 
+appear) and make sure it looks similar to the example above. If the OC4J 
+Instance gives errors, it may be because your computer has a personal firewall 
+(such as that included in Windows XP Service Pack 2). Make certain you configure 
+your personal firewall to allow local connections to port 8888. 
+<P><BR>If you have previously not installed the latest JInitiator, your browser 
+will launch with the following message: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/plugin_not_loaded.jpg"> 
+
+<P>Click on the "Get the Plug-in" button and follow the instructions to install 
+it. Note that the jinit.exe file is actually installed with Oracle9i Developer 
+Suite. 
+<P>Reminder: If you saved your form in a folder that has spaces in the name, or 
+if your file name has spaces, the form will not load in the web browser. In such 
+cases, you may see error: <TT>FRM-90928 Positional parameter after key on 
+command line</TT>. If this occurs, simply use the "Save As" item on the File 
+menu to save the form under a new name with no spaces. Then try to run the form 
+again. 
+<P>Technical Notes and Possible Errors:
+<P>
+<UL>
+  <LI>The height and width settings for the Java applet that displays the forms 
+  are set in the <TT>formsweb.cfg</TT> file located in <TT>\forms90\server</TT> 
+  directory under the Oracle9iDS installation home. Edit the 
+  <TT>formsweb.cfg</TT> file with a text editor and scroll down to Section 
+  <TT>3) Values for the Forms applet parameters:</TT> <BR>Change the width= and 
+  height= parameters accordingly and save the file. You amy need to restart the 
+  OC4J server. 
+  <LI>Error <TT>FRM-18125: Could not find the web browser</TT> appears if you do 
+  not have a web browser installed or your web browser is not found in the PATH. 
+  If you are certain you have a web browser installed, set its location in the 
+  Preferences section in the Forms builder (Edit -&gt; Preferences -&gt; Runtime 
+  tab). 
+  <LI>Error <TT>FRM-10142: The HTTP listener is not running on...</TT> appears 
+  if the OC4J is not running. Start the OC4J Instance. </LI></UL>
+<P><A name=querybyexample></A>
+<H4>6.4.4 Query By Example</H4>
+<P>When a Developer Form is first executed, no records will appear. That is, the 
+blank form will appear with no data in the fields. This is similar to running a 
+word processor where the opening screen is blank. From this blank or empty form, 
+the user can immediately begin to enter new data records by simply typing them 
+in. 
+<P>However, in many cases, the user would first like to see if there are any 
+records in the database. To do this, the user must <I>query</I> the database 
+using the query capabilities that are built into every Oracle form. This will 
+bring a copy of the records from the database into the form. 
+<P>When a tool such as SQL*Plus is used, the user must form the SQL query by 
+typing it directly in. In the case of embedded SQL, the SQL statements are 
+programmed into the host language (such as "C" or Java) and automatically 
+executed for the user. In the case of Oracle Forms, complex queries can be 
+formulated and submitted to the database using a technique called Query By 
+Example or QBE. In QBE, the name of the table or tables is fixed as are the 
+names of the columns that will be returned from the tables. The user can supply 
+their own criteria by supplying values for the fields. These values become part 
+of the query that is submitted to the database on behalf of the user. 
+<P>Querying a form in Oracle Forms is a two step process. Clicking on the Query 
+button or choosing <TT>Enter Query</TT> from the <TT>Query</TT> menu places the 
+form in <I>Enter Query</I> mode. In enter query mode, the form is cleared and 
+the user can navigate in the various fields. Example values can be supplied as 
+criteria for the query. For example, a user looking for all employees in the 
+RESEARCH department might type a "5" in the DNO field while in enter query mode. 
+
+<P>Clicking on the Query button a second time (or pulling down the 
+<TT>Query</TT> menu and choosing <TT>Execute Query</TT>) executes the current 
+query using any supplied data as criteria in a WHERE clause. If no criteria are 
+supplied, then all records in the table will be displayed. Continuing the above 
+example, supplying a "5" for the DNO field while in enter query mode would cause 
+the following SQL query to be submitted to the database: <PRE>SELECT fname, lname, ssn, bdate, salary, dno
+FROM   employee
+WHERE  dno = 5;
+</PRE>
+<P>Most of the commands on the menus and on the button bar can also be activated 
+using special key combinations or function keys. For example, within the Java 
+based forms display pressing the <TT>F11</TT> function key places the form in 
+Enter Query mode. Pressing the <TT>CTRL+F11</TT> function key executes a query. 
+(Note: Please check the Help menu to see if the keys in your system are the 
+same). To see a list of keys and their functions, pull down the <TT>Help</TT> 
+menu and choose the <TT>Keys</TT> option. 
+<P>Once data has been queried, it is retrieved from the database and stored in a 
+buffer in the associated data block on the form. This means that a local copy of 
+the data now exists in the client's memory. Appropriate locks are placed on the 
+data so that the client maintains a consistent view of the data in the 
+associated tables. 
+<P>The user can navigate through the data in a block by pressing the up and down 
+arrow keys to scroll between records. To change data in a form, the user can TAB 
+to the field of interest, and type over the existing data. 
+<P>To enter new data into the form, the user can scroll to the last record and 
+then down once more to move to a blank record. Data can then be typed into the 
+fields and the TAB key can be pressed to move between fields on the form. 
+<P>To save both changed and new records on a form, pull down the <TT>Action</TT> 
+menu and choose the <TT>Save</TT> menu item. Any records that have been changed 
+are collected and submitted to the database as SQL UPDATE statements. Any new 
+records are collected and submitted to the database as INSERT statements. These 
+statements are submitted as a single logical unit of work. Thus if a failure 
+occurs during any of the statements, the entire transaction will be rolled back. 
+
+<P>If the user attempts to clear the block or exit the form and there are some 
+changes that have not yet been applied to the database, they will be prompted to 
+commit the changes before exiting or clearing the form. The block is cleared 
+when the Enter Query mode is invoked. A block can also be cleared using the 
+<TT>Clear Block</TT> and <TT>Clear Form</TT> menu items. 
+<P>To exit from a running form, pull down the <TT>Action</TT> menu and select 
+the <TT>Exit</TT> menu item. <B>Warning: Do not simply close the web browser as 
+this will leave a Java Applet process running and this will lock your form (.fmx 
+file).</B> 
+<P>As a review, here are a few basic functions that can be performed by default 
+in any Form: 
+<P>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TH>Forms function 
+    <TH>Notes 
+  <TR>
+    <TD>Querying a form 
+    <TD>To see all records in the table, simply "Execute Query" (via Query 
+      menu or by pressing F8 in Windows).<BR>To filter the record, "enter query" 
+      mode, specify the query parameters in the fields and then "Execute Query". 
+
+  <TR>
+    <TD>Inserting new records 
+    <TD>Scroll to the last record and then scroll once more to get a blank 
+      record. Type in data for each field and then commit these changes by 
+      pulling down the <TT>Action</TT> menu and choose the <TT>Save</TT> menu 
+      item.<BR>For master/detail forms (discussed below) first either query a 
+      master record or insert and save a master record (in the master data 
+      block), then navigate to the detail block and insert new records there. 
+  <TR>
+    <TD>Updating existing records 
+    <TD>Query the database and scroll to the record of interest. Change the 
+      values in the fields and then save the changes. <BR>For master/detail 
+      forms, changes to the key in the master block may be prevented if detail 
+      records exist (thus insuring relational integrity). 
+  <TR>
+    <TD>Deleting records 
+    <TD>Query the database and scroll to the record of interest. Pull down the 
+      Records menu and choose Delete record. Then save the changes.<BR>For 
+      master/detail forms, attempting to delete a master record when detail 
+      records exist typically results in an error. In such cases, all of the 
+      detail records should be deleted first and then the master record should 
+      be able to be deleted. 
+  <TR>
+    <TD>Exiting the Form 
+    <TD>Pull down the <TT>Action</TT> menu and choose the <TT>Exit</TT> menu 
+      item. Existing in this way will release any Java processes that might lock 
+      up your forms files. </TR></TBODY></TABLE>
+<P><A name=exercise_simpleform></A>
+<H3>6.5 Exercise: Creating a a Single Block Form</H3>
+<P>For this exercise, create a simple data entry form for the DEPARTMENT table 
+with the following characteristics: 
+<UL>
+  <LI>Select and display all of the columns in the DEPARTMENT table. 
+  <LI>In the layout wizard, use the <A 
+  href='http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#tabularlayout"'>Tabular</A> 
+  layout and <A 
+  href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#numberofrecords">display 
+  5 Records</A> in the form. Add a scrollbar. 
+  <LI>In the Layout Editor, make the DNAME field a bit wider to accommodate 
+  longer department names. 
+  <LI>Change the Properties of the DEPARTMENT block so that that data is ORDER 
+  BY DNAME. 
+  <LI>Save the form under the file name: <TT>depart.fmb</TT> </LI></UL>
+<P>The resulting form should look like the following: 
+<P><IMG alt="[Exercise result form]" 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_ex1_form.jpg"> 
+
+<P>Use the enter query mode and execute query functions to query the department 
+table for a specific department name and/or number. 
+<P>
+<HR>
+
+<P><A name=creatingmasterdetail></A>
+<H2>7. Creating a Master-Detail Form</H2><!-- This tutorial is copyrighted by Richard Holowczak (C) 1997-2004 richard_holowczak@baruch.cuny.edu ** DO NOT COPY -->In 
+this section, the basic steps for creating a Master/Detail form are introduced. 
+A Master/Detail form is a form that has two blocks arranged in a master-detail 
+relationship. 
+<P><A name=masterdetailrelationship></A>
+<H3>7.1 The Master-Detail Relationship</H3>The Master-Detail relationship is a 
+common relationship between entities in a business. In an Entity-Relationship 
+diagram, these are shown as "One to Many" relationships. In a physical database 
+design, a single <I>Master</I> record references one or more <I>detail</I> 
+records in another table. A record in the detail table will relate to exactly 
+one master record in the master table. Another name for this relationship is 
+called parent-child. Examples of this relationship include: 
+<UL>
+  <LI>A Customer Order with many OrderItems. 
+  <LI>A Department with many Employees. 
+  <LI>An Employee with many Dependents. 
+  <LI>A Company with many Branch Offices. 
+  <LI>A Recipe with many RecipeSteps. 
+  <LI>An Inventory location with many Inventory Items. </LI></UL>
+<P>Oracle Forms implements the master-detail relationship using two data blocks. 
+The first block corresponds to the master table and the second block corresponds 
+to the detail table. There are two major functions in a Master-Detail form: 
+<UL>
+  <LI>Oracle Forms coordinates values between the two blocks through a series of 
+  form and block level <I>triggers</I>. 
+  <LI>Oracle Forms guarantees that the detail block will display only records 
+  that are associated with the current record in the master block. </LI></UL>
+<P>Note that a Master-Detail form is simply one way of viewing the data in two 
+related tables. Forms do not affect the schema in terms of creating, dropping or 
+enforcing database level referential integrity constraints. 
+<P><A name=stepscreatemasterdetail></A>
+<H3>7.2 Steps to Create a Master-Detail Form</H3>In this section, a set of step 
+by step instructions for creating a Master-detail form are given. The form will 
+allow a user to query a given department in the company and then will display 
+all of the employees in that company. 
+<P>The schema used is the same one suggested in the <A 
+href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#prerequisites">Prerequisites</A> 
+section at the beginning of this tutorial. Notice that the DNO column in the 
+<TT>EMPLOYEE</TT> table gets its values from the DNUMBER column in the 
+<TT>DEPARTMENT</TT> table. In other words, to join the two tables in a query, 
+one might specify a WHERE clause such that: <TT>EMPLOYEE.DNO = 
+DEPARTMENT.DNUMBER</TT>. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/er_empdept.gif"> 
+
+<P><A name=createmasterblock></A>
+<H4>7.2.1 Create the Master Block</H4>In the Object Navigator, click on the 
+<TT>Forms</TT> branch at the very top. Create a new form by pulling down the 
+<TT>File</TT> menu and choosing the <TT>New</TT> menu item. Then choose 
+<TT>Form</TT> from the flyout menu. 
+<P>Using the same steps given in the prior section on <A 
+href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#singleblockform">6. 
+Creating a Form with a Single Block</A>, create a new block named 
+<TT>DEPARTMENT</TT> that contains all of the columns in the <TT>DEPARTMENT</TT> 
+table. Briefly: 
+<P>
+<OL>
+  <LI>Pull down the <TT>Tools</TT> menu and choose the Data Block wizard. 
+  <LI>Create a data block for a table/view. 
+  <LI>Specify the DEPARTMENT table and select all of the columns (DNAME, 
+  DNUMBER, MGRSSN and MGRSARTDATE). 
+  <LI>Create the data block and then go on to the Layout wizard. 
+  <LI>Apply the Department data block to a new canvas. 
+  <LI>Add all of the columns as Displayed Items. 
+  <LI>Change the labels to:<BR>Dept. Name<BR>Dept. Number<BR>Mgr. Ssn<BR>Mgr. 
+  Start Date 
+  <LI>Choose a <I>Form</I> layout. 
+  <LI>Specify a frame title of "Departments" and select only 1 record to be 
+  displayed. 
+  <LI>Save the form as <TT>deptemp.fmb</TT> and then compile and run it to make 
+  sure it is working properly. 
+  <LI>Use the QBE features to retrieve only those departments with DNUMBER 
+  greater than 2. Then, do another QBE query to retrieve only those departments 
+  with the letter <TT>H</TT> in their name (try <TT>%H%</TT>). </LI></OL>
+<P>After this first step, the <TT>deptemp</TT> form should look like the 
+following: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_md_step1.jpg"> 
+<BR clear=all><A name=createdetailblock></A>
+<H4>7.2.2 Create the Detail Block</H4>Now that we have the master block 
+DEPARTMENT created, we can now create the detail block EMPLOYEE and associate it 
+with the master block. Perform the following steps: 
+<OL>
+  <LI>Return to the Object Navigator (pull down the <TT>Tools</TT> menu and 
+  choose <TT>Object Navigator</TT>). 
+  <LI>In the Object Navigator, click on the Data Blocks branch of the DEPTEMP 
+  form (do not click on the department data block, however). 
+  <LI>Pull down the Tools menu and choose the Data Block wizard.<BR><I>Note:</I> 
+  If the DEPARTMENT data block (or any of its items) is still selected, 
+  activating the Data Block wizard will cause the existing block to be edited 
+  instead of creating a new block (which is what is required in this part of the 
+  tutorial). 
+  <LI>Select the EMPLOYEE table and include the FNAME, LNAME, SSN, BDATE, SALARY 
+  and DNO columns.<BR><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_md_step2.jpg"><BR 
+  clear=all>
+  <P></P>
+  <LI>Because at least one data block already exists in the form, the next step 
+  in the wizard will be to create a relationship between the existing data block 
+  (DEPARTMENT in this case) and the new block being created. 
+  <P>The wizard can construct the relationship based on table level constraints 
+  it learns from the database schema. For example, in the CREATE TABLE and ALTER 
+  TABLE statements given at the start of this tutorial, foreign key constraints 
+  were specified between DEPARTMENT and EMPLOYEE, and between EMPLOYEE and 
+  DEPENDENT. However, such relationships are not always implemented in table 
+  level constraints.<BR>The developer can also specify the relationship 
+  manually. In this case, the relationship will be specified manually. 
+  <P>De-select the <TT>Auto-join data blocks</TT> option.<BR>Click on the 
+  <TT>Create Relationship</TT> button to list the available data blocks. <BR>In 
+  the next dialog box Relation Type, choose <TT>Based on a join condition</TT> 
+  and click the <TT>OK</TT> button.<BR><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_md_step3.jpg"><BR 
+  clear=all>When the list of blocks appears, choose the DEPARTMENT data 
+  block.<BR>Arrange the Detail Item (<TT>DNO</TT>) and Master Item 
+  (<TT>DNUMBER</TT>) such as that the join condition becomes: <TT>EMPLOYEE.DNO = 
+  DEPARTMENT.DNUMBER</TT><BR><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_md_step4.jpg"><BR 
+  clear=all></P>
+  <LI>Name the data block EMPLOYEE. 
+  <LI>Create the data block and then call the Layout wizard. 
+  <LI>Be sure to choose the existing canvas (CANVAS4 in this example) and 
+  include all of the items <I>except the DNO</I> as displayed.<BR>The DNO column 
+  (item) will still be a part of the EMPLOYEE data block, however, it will not 
+  be displayed to the user.<BR><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_md_step5.jpg"><BR 
+  clear=all>
+  <LI>Touch up the labels for the fields and choose the <I>Tabular</I> layout. 
+  <LI>Give the Frame Title as "Employees" and select 5 Records displayed with 0 
+  distance between records. 
+  <LI>Save the form (it should already have the name <TT>deptemp.fmb</TT>) and 
+  then compile and run it. Note that after compilation, any errors encountered 
+  will be displayed. </LI></OL>The following figure shows the master-detail form 
+running: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_md_step6.jpg"> 
+
+<P>Notice that by scrolling the master block DEPARTMENT to a new department 
+number (using the up and down arrow keys), the employees for that department are 
+automatically queried and displayed. 
+<P>To navigate between the Master and Detail blocks, use: 
+<UL>
+  <LI>To go to the next block: Press <TT>CTRL-PageDown</TT> or pull down the 
+  <TT>Block</TT> menu and choose <TT>Next</TT> 
+  <LI>To go to the previous block: Press <TT>CTRL-PageUp</TT> or pull down the 
+  <TT>Block</TT> menu and choose <TT>Previous</TT> </LI></UL>
+<P><A name=relationproperties></A>
+<H3>7.3 Relation Properties of a Master-Detail Form</H3>There are a number of 
+properties in a master-detail form that can be changed to suit particular 
+behavior of the form. In the figure below, the Object Navigator has several new 
+objects on it including <I>Relations</I>. 
+<P>To view the properties for the DEPARTMENT_EMPLOYEE relation, open up the 
+DEPARTMENT block and then open the Relations block by clicking on the <TT>+</TT> 
+symbols. Then click on the DEPARTMENT_EMPLOYEE relation with the right mouse 
+button and select Properties. 
+<P>There are several interesting properties in the relations property sheet: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/md_relation_prop.jpg"> 
+
+<P>
+<UL>
+  <LI><B>Name</B> - The name of the Relation. This is typically made up of the 
+  names of the blocks. 
+  <LI><B>Relation Type</B> - The type of the relation: Join or Ref.<BR>A Join 
+  relation uses the typical SQL join (in the Where clause) to bring the two 
+  tables (data blocks) together. The <I>Ref</I> relation type is used for 
+  abstract data types and object references. 
+  <LI><B>Detail Data Block</B> - The name of the detail data block specified 
+  when the detail data block was created. 
+  <LI><B>Join Condition</B> - This is the join condition in effect for queries 
+  to the database. This was specified when the detail data block was created. 
+  <LI><B>Delete Record Behavior</B> - Used to specify how the deletion of a 
+  record in the master block affects records in the detail block. It supports 
+  the following settings: 
+  <UL>
+    <LI>Non-isolated: Prevents the deletion of a master record if associated 
+    detail records exist in the database. 
+    <LI>Isolated: Deleting the master record will not affect the associated 
+    detail records in the database. 
+    <LI>Cascading: Deletes the master record and automatically deletes any 
+    associated detail records. </LI></UL>
+  <LI><B>Coordination - Deferred</B> - Indicates when detail records should be 
+  queried when a master record is queried. 
+  <UL>
+    <LI>Yes: Form does not query the detail records until the user navigates to 
+    the detail block. 
+    <LI>No: Detail records are fetched immediately when a user queries the 
+    master record. </LI></UL>Deferred is sometimes set to Yes in cases where there 
+  are a lot of detail records for each master record. In such cases, a lot of 
+  data must be queried and delivered to the client each time a new record is 
+  displayed in the master block. When Deferred is set to Yes, the user can 
+  scroll down to the master record of interest and then navigate to the detail 
+  block (CTRL-PageDown) to query the related detail records. 
+  <LI><B>Coordination - Auto-query</B> - Applied to deferred queries only 
+  <UL>
+    <LI>Yes: the query is automatically executed when the user navigates to the 
+    detail block. 
+    <LI>No: the query must be executed manually by the user after they navigate 
+    to the detail block. </LI></UL>
+  <LI><B>Prevent Masterless operation</B> - Specifies whether users are allowed 
+  to query or insert records in a detail block when no master record is in 
+  place. 
+  <UL>
+    <LI>Yes: Users may not query or insert when no master record is in place. 
+    <LI>No: Users may query or insert when no master record is in place. 
+  </LI></UL></LI></UL>
+<P>These settings are used to "tune" the overall performance of a master-detail 
+form. As mentioned above, in cases where a large number of detail records are 
+associated with each master record, it is a good idea to set 
+coordination-Deferred to Yes to avoid unnecessary transfers of data between the 
+server and client. This will also speed up the display of master records as the 
+user can freely scroll through them without a pause to query and deliver the 
+detail records. 
+<P><A name=programunits></A>
+<H3>7.4 Program Units in a Master-Detail Form</H3>When a Master-detail form is 
+created, three basic <I>Program Units</I> (PL/SQL Procedures) are created by 
+default. These procedures are used to coordinate the query and navigation of the 
+detail records when the master record is changed (e.g., when the user scrolls to 
+a different master record), updated or deleted. The procedures can be seen 
+listed in the Object Navigator: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/md_progunits.jpg"> 
+
+<P>PL/SQL is Oracle's procedural language extensions to SQL. To view the PL/SQL 
+code for a Program Unit, click on the name of the program unit with the right 
+mouse button and then choose <TT>PL/SQL Editor</TT> from the pop-up menu. The 
+code for the CHECK_PACKAGE_FAILURE procedure is show here: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/pr_checkpackagefailure.jpg"> 
+
+<P>The CHECK_PACKAGE_FAILURE procedure checks to see if a prior form command or 
+SQL statement was successful or if it failed. 
+<P>Below is the PL/SQL code for the QUERY_MASTER_DETAILS procedure. The text 
+after the <TT>--</TT> (two minus signs) are comments. 
+<P>
+<TABLE cellPadding=5 border=1>
+  <TBODY>
+  <TR>
+    <TD><FONT size=-1><XMP>PROCEDURE Query_Master_Details(rel_id Relation,detail CHAR) IS
+oldmsg CHAR(2);  -- Old Message Level Setting
+reldef CHAR(5);  -- Relation Deferred Setting
+BEGIN
+--
+-- Initialize Local Variable(s)
+--
+reldef := Get_Relation_Property(rel_id, DEFERRED_COORDINATION);
+oldmsg := :System.Message_Level;
+--
+-- If NOT Deferred, Goto detail and execute the query.
+--
+IF reldef = 'FALSE' THEN
+Go_Block(detail);
+Check_Package_Failure;
+:System.Message_Level := '10';
+Execute_Query;
+:System.Message_Level := oldmsg;
+ELSE
+--
+-- Relation is deferred, mark the detail block as un-coordinated
+--
+Set_Block_Property(detail, COORDINATION_STATUS, NON_COORDINATED);
+END IF;
+
+EXCEPTION
+WHEN Form_Trigger_Failure THEN
+:System.Message_Level := oldmsg;
+RAISE;
+END Query_Master_Details;
+</XMP></FONT></TD></TR></TBODY></TABLE>
+<P>The QUERY_MASTER_DETAILS procedure is executed whenever the user navigates to 
+the detail block in a master detail form. If the Deferred Coordination property 
+is set to false, then the detail block is automatically queried. 
+<P>Finally, the CLEAR_MASTER_DETAILS procedure is called each time a new master 
+record is retrieved (e.g., when the user scrolls to a different master record) 
+or deleted. In this case, if any of the detail records have been inserted, 
+updated or deleted, the changes must be saved into the database before the 
+detail block can be cleared. If there are any outstanding changes to be saved, 
+the user will be prompted to save those changes before the detail bock is 
+cleared. 
+<P><A name=extendingmasterdetail></A>
+<H3>7.5 Extending Master-Detail Forms</H3>Master-Detail forms can be extended to 
+include additional levels of details. For example, consider a Customer listing 
+with detail on Orders a customer has placed. For each Order, there are then many 
+Items. An extension to the above example would be to include the DEPENDENTS of 
+the employees as a details of the EMPLOYEES block. The steps outlined above can 
+be repeated allowing several levels of detail to be added. Each additional level 
+of detail will add a new block that is related to the level above it. 
+<P>
+<P><A name=exercise_masterdetail></A>
+<H3>7.6 Exercise: Creating a Master/Detail Form</H3>
+<P>For this exercise, create a Master/Detail form using the EMPLOYEE and 
+DEPENDENT tables. Employee will be the Master block and Dependents will be the 
+Detail block. The join condition between the two tables is where the SSN column 
+of EMPLOYEE is equal to the ESSN column of DEPENDENT. 
+<P>The following is an outline of the steps: 
+<OL>
+  <LI>Create the Employee data block and include the FNAME, LNAME, SSN, ADDRESS 
+  and SEX fields on the form. Use the Form layout and only display one record at 
+  a time. 
+  <LI>Go back to the Object Navigator and select the "Data Blocks" tree. Make 
+  sure the EMPLOYEE block is not selected and run the Data Block Wizard again. 
+  <LI>Create the Dependents data block and include all of the columns.<BR>For 
+  the master/Detail relationship, de-select the "auto" option, use a Join 
+  relationship, choose the EMPLOYEE data block as the Master and set 
+  <TT>DEPENDENT.ESSN = EMPLOYEE.SSN</TT> for the join relationship. 
+  <LI>In the Layout Wizard for the Dependents data block, display all of the 
+  fields <I>except the ESSN field</I>. The ESSN field will remain part of the 
+  data block but it will not be visible on the form. Choose a Tabular style and 
+  display 4 up to records at once with 0 space between each record. 
+  <LI>Save the form using the name: <TT>empdepn.fmb</TT> </LI></OL>
+<P>The completed form should look like the following: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_ex1_md_form.jpg"> 
+
+<P>Query the master block and practice navigating between the two blocks using 
+the CTRL-PageDown and CTRL-PageUp keys. 
+<P>While in the Employee block, scroll to the Employee named JENNIFER WALLACE, 
+navigate to the Dependents block and add a new record for a SON named ANDREW 
+born on 20-OCT-1962. Navigate back to the Employee block and attempt to scroll 
+to another employee record. A prompt should be displayed to save the new 
+Dependent record. 
+<P>While in the Master block for Employees, scroll to an employee who has some 
+dependents. Try to delete the Employee record and see if an error message 
+appears. 
+<P>Finally, alter the EMPLOYEE_DEPENDENT relation properties and set the 
+Coordination-Deferred to Yes and then run the form. Notice now that the detail 
+records will not be displayed automatically. Navigate to the Dependents block 
+and hit the Execute query button (or pull down the <TT>Query</TT> menu and 
+choose <TT>Execute</TT>). Notice that only those Dependent records matching the 
+Employee are displayed. 
+<P>
+<HR>
+
+<P><A name=listofvalues></A>
+<H2>8. List of Values (LOVs) and Non-Base Table Fields</H2><!-- This tutorial is copyrighted by Richard Holowczak (C) 1997-2004 richard_holowczak@baruch.cuny.edu ** DO NOT COPY -->
+<P>It is cumbersome for a user to have to remember various codes and numbers 
+while entering data into a data entry form. For example, in the Employee form, 
+it might be difficult to have all of the department numbers memorized when 
+inserting new employee data. 
+<P>One solution to this problem is to make a list of appropriate values 
+available when the user navigates to Department Number field (DNO). In Oracle 
+Forms, these are called List of Values (LOVs). The next section will illustrate 
+creating LOVs for fields. These examples are based on the single block Employee 
+form created at the beginning of this tutorial. 
+<P>To prepare for this part of the tutorial, close any forms you currently have 
+open by pulling down the <TT>File</TT> menu and selecting the <TT>Close</TT> 
+menu item. 
+<P>Once all of the forms are closed, pull down the <TT>File</TT> menu and choose 
+the <TT>Open</TT> menu item to open up the <TT>employee.fmb</TT> form that was 
+created previously. 
+<P>A List of Values is based on a <I>Record Group</I>. In Oracle Forms, a record 
+group is a query that returns some collection of records. Record groups can be 
+used to populate blocks or LOVs and they can be used in procedures. When the 
+user navigates to an item with an LOV attached to it, the LOV key (F9 in MS 
+Windows) can be pressed to call up the LOV. At that time, the query associated 
+with the record group is executed and the results are displayed in a pop up 
+window. Once the user makes a selection from the list, the value or values are 
+returned to the form and placed in the appropriate fields. 
+<P>In the example below, a record group and LOV for the DNO (department number) 
+field in the Employee table will be created. <A name=creatinganlov></A>
+<H3>8.1 Creating a List of Values</H3>Creating a List of Values requires 4 basic 
+steps. <A name=newlovobject></A>
+<H4>8.1.1 Create a new LOV Object</H4>
+<P>To create an LOV, click on the LOVs node in the Object Navigator. Then pull 
+down the <TT>Edit</TT> menu and choose the <TT>Create</TT> menu item. A dialog 
+box will appear asking if you would like to create the LOV manually or if you 
+would like to use the LOV Wizard. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lov_wizard1.jpg"> 
+
+<P>
+<P>Choose "Use the LOV Wizard" and click the OK button. The first step of the 
+LOV Wizard will appear as below: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lov_wizard2.jpg"> 
+
+<P>The default is set to create a new Record Group based on a query. Make sure 
+this selection is highlighted and then click the Next button. 
+<P>In most cases, you will not have a record group created previously. However, 
+one can be created on the fly at this point by specifying a query. In this 
+example, enter the LOV query as follows: <TT>SELECT dnumber FROM department</TT> 
+
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lov_wizard3.jpg"> 
+
+<P>Then click on the Next button. 
+<P>The next step is to specify which columns in the record group will be 
+returned to for use by the LOV. In this example, we only return DNUMBER so 
+select that column as shown below and click Next. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lov_wizard4.jpg"> 
+
+<P>The next step is to specify the display properties of the LOV columns and 
+also to map the LOV item to the field on the form. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lov_wizard5.jpg"> 
+
+<P>To map the LOV column to a field, click on the DNUMBER entry and then click 
+on the "Look up return Item" button. Highlight the EMPLOYEE.DNO field and click 
+on the OK button. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lov_wizard6.jpg"> 
+
+<P>Note that if your LOV contains more than one item, at this time you would 
+also map them as well (this is not the case with this example, but in the next 
+example we will need to map two LOV columns). Click on the Next button. 
+<P>Specify a title for LOV window (e.g., "List of Department Numbers"). At this 
+point you may also specify the size and positioning of the LOV. For this 
+example, leave them as the defaults and click the Next button. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lov_wizard7.jpg"> 
+
+<P>The advanced properties relate to how the records should be fetched for the 
+LOV. If there are many hundreds or thousands of possible records returned by the 
+LOV, you may consider changing these options. Otherwise, for this example, 
+simply click Next. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lov_wizard8.jpg"> 
+
+<P>In this final step, the LOV is returning some columns and they were assigned 
+to fields on the form in a previous step. At this point, we need to associate 
+the LOV with a particular item on the form. For example, by assigning the LOV to 
+the EMPLOYEE.DNO field, the user will be able to call up the LOV only when the 
+cursor is positioned in the EMPLOYEE.DNO field. Choose EMPLOYEE.DNO and click 
+the Next button. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lov_wizard9.jpg"> 
+
+<P>Finally, click Finish to create the Record Group and the LOV. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lov_wizard10.jpg"> 
+
+<P>In the figure below, the LOV has been created. A default name of LOV6 was 
+given to both the LOV and to its associated record group. Depending on what 
+other parts of this tutorial you have completed, the default name may be 
+slightly different. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lov_wizard11.jpg"> 
+
+<P>Save, Compile and Run the form. When entering new data, navigate to the DNO 
+(Department number) field. Notice at the bottom of the form, a message appears: 
+<TT>List of Values</TT> indicating a list of values is available for this field. 
+
+<P>Under UNIX and under the Java based applet, the key to display the list of 
+values is Control-l (hold down the control key (Ctrl) and press the letter L). 
+To see the appropriate keys to press, pull down the <TT>Help</TT> menu and 
+choose the <TT>Keys</TT> item. 
+<P>Below is an example of the list of values for the DNO item on the Employee 
+form. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_lov_wizard12.jpg"> 
+
+<P><A name=nonbasetablefields></A>
+<H3>8.2 Non-Base Table fields</H3>In the previous example of adding a List of 
+Values, the supplied list of appropriate values can be useful in cases where the 
+values themselves are self-explanatory. However, in the prior example, the 
+department numbers may not have meaning to the user. 
+<P>It would be more helpful to include the name of the department both in the 
+pop-up list of values and on the form. However, the department name is not part 
+of the EMPLOYEE table or data block. Thus we need a way to display this 
+information on the EMPLOYEE data block in a <I>non base table field</I>. 
+<P>Adding this item and making it functional will take several steps: 
+<OL>
+  <LI>First the new item will have to be added to the EMPLOYEE data block. We'll 
+  call this new item DEPTNAME. 
+  <LI>Next, the DEPTNAME field should be populated with the department name each 
+  time the value of the DNO field changes. A <TT>trigger</TT> will be created to 
+  handle this functionality. 
+  <LI>Finally, the list of values will be changed to include the Department name 
+  in the LOV. </LI></OL><A name=addinganewitem></A>
+<H4>8.2.1 Adding a New Item to an Existing Data Block</H4>
+<UL>
+  <LI>Switch to the Layout Editor by clicking on the <TT>Tools</TT> menu and 
+  selecting the <TT>Layout Editor</TT> menu item. 
+  <LI>Click on the Text Item tool <IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/text_item_tool.gif"> 
+  and create a new field on the EMPLOYEE block by clicking and dragging the 
+  mouse next to the DNO item. 
+  <P><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_nbt_new_item.jpg"> 
+
+  <P></P>
+  <LI>Display the properties for the new Text Item by double clicking on it. 
+  Change its name to DEPTNAME. Change the following properties for DEPTNAME:<BR>
+  <P><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_nbt_item_prop.jpg" 
+  align=left> 
+  <P><B>Enabled:</B> Yes<BR><B>Keyboard Navigable:</B> No<BR><B>Database 
+  Item:</B> No<BR><B>Query Only:</B> No<BR><B>Primary Key:</B> No<BR><B>Insert 
+  Allowed:</B> No<BR><B>Query Allowed:</B> No<BR><B>Update Allowed:</B> 
+  No<BR><BR clear=all><BR></P>
+  <LI>By setting Keyboard Navigable to <I>No</I>, we prevent the user from 
+  tabbing into this field. Since this field is not used for data entry or 
+  querying, this prevents the potential confusion. 
+  <LI>The Database Item property is set to <I>No</I> which indicates that this 
+  filed does not map to an actual column in the EMPLOYEE table. 
+  <LI>The remaining properties are all set to <I>No</I> to keep the field from 
+  participating in any of these activities: Delete, Insert, Update and Query. 
+  </LI></UL>
+<P>At this point, the new item DEPTNAME has been added to the EMPLOYEE data 
+block as a non-base table field. 
+<P>Save the form at this point by pulling down the <TT>File</TT> menu and 
+choosing the <TT>Save</TT> option. 
+<P><A name=creatingtriggers></A>
+<H4>8.2.2 Creating a Trigger</H4>Next, we will create a trigger to populate the 
+DEPTNAME field whenever the value of DNO changes. Triggers in Oracle Forms have 
+four general forms: 
+<UL>
+  <LI><TT>PRE-</TT> Trigger fires before an event is executed. 
+  <LI><TT>POST-</TT> Trigger fires after an event is executed. 
+  <LI><TT>WHEN-</TT> Trigger fires in place of the execution of an event. 
+  <LI><TT>KEY-</TT> Trigger fires when a particular key is pressed. </LI></UL>In 
+this example, we would like to populate the DEPTNAME field with the appropriate 
+department name just after the DNO field changes on the EMPLOYEE block. Thus we 
+will use a <TT>POST-CHANGE</TT> trigger on the <TT>:EMPLOYEE.DNO</TT> field. 
+<UL>
+  <LI>Switch to the Object Navigator view by clicking on the <TT>Tools</TT> menu 
+  and choosing the <TT>Object Navigator</TT> menu item. 
+  <LI>Open up the EMPLOYEE data block and the DNO item. 
+  <LI>Click on the <B>Triggers</B> property and create a new trigger by pulling 
+  down the <TT>Edit</TT> menu and choosing the <TT>Create</TT> menu item. 
+  <LI>A list of possible trigger names appears. Choose the <TT>POST-CHANGE</TT> 
+  trigger and click on the OK button. 
+  <P><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_nbt_trigger1.jpg"> 
+
+  <P></P>
+  <LI>When the PL/SQL editor appears, type the following PL/SQL code: <XMP>-- Populate the non-base table field :EMPLOYEE.DEPTNAME
+-- using a value from the DEPARTMENT table.
+BEGIN
+SELECT DNAME
+INTO   :EMPLOYEE.DEPTNAME
+FROM   DEPARTMENT
+WHERE  DEPARTMENT.DNUMBER = :EMPLOYEE.DNO;
+END;</XMP>Items on a block are preceded by a full colon to differentiate them 
+  from columns in a table. 
+  <LI>Compile the trigger by clicking on the Compile button (this icon is in the 
+  upper left corner of the PL/SQL editor window). 
+  <P><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_nbt_trigger2.jpg"> 
+
+  <P></P>
+  <LI>Close the PL/SQL editor by clicking on the Close button. </LI></UL>
+<P>Save, compile/build and run the form to test the functionality. Notice that 
+when the EMPLOYEE block is queried, the associated department name now appears 
+in the new DEPTNAME field. Each time the DNO field is changed, the POST-CHANGE 
+trigger will fire and will fetch the appropriate DNAME column from the 
+DEPARTMENT table and place it in the :DEPTNAME field on the form. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_nbt_running.jpg"> 
+
+<P>
+<P><A name=changenewlov></A>
+<H4>8.2.3 Create a new List of Values</H4>Finally, a new list of values should 
+be created to display both the department number and name when the user calls up 
+the LOV. 
+<P>If you completed the previous section on creating the simple LOV, use the 
+Object Navigator to delete this LOV before proceeding with this section. 
+<P>
+<UL>
+  <LI>From the Object Navigator, click on the LOVs for the EMPLOYEE form. Pull 
+  down the <TT>Edit</TT> menu and choose the <TT>Create</TT> menu item. Choose 
+  the LOV Wizard. 
+  <LI>Type the following SQL statement into the <B>Query Text</B> field:<BR><PRE>SELECT DEPARTMENT.DNUMBER, DEPARTMENT.DNAME FROM DEPARTMENT
+</PRE>Then click on the Next button. 
+  <P>Include both the DNUMBER and DNAME columns from the Record Group in the 
+  LOV.<BR>Map the DNUMBER LOV column to the :EMPLOYEE.DNO text item and map the 
+  DNAME LOV column to the :EMPLOYEE.DEPTNAME text item (created in the previous 
+  section). </P>
+  <LI>Give a title for your list of values and return both DNUMBER and DNAME 
+  from the LOV. 
+  <LI>Finally, Save, Compile and Run the form. Note that displaying the LOV for 
+  the DNO item now causes both the department number and the name to appear. 
+  </LI></UL>
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_nbt_lov_running.jpg"> 
+
+<P><A name=exercise_lov></A>
+<H3>8.3 Exercise: Creating an LOV and Non-Base table field</H3>For this 
+exercise, create a new, single data block form based on all of the columns in 
+the DEPARTMENT table. Then add a non-base table field for the last name of the 
+department manager and create an LOV to populate it: 
+<UL>
+  <LI>Create a new form called <TT>departmg.fmb</TT> that includes all of the 
+  columns in the DEPARTMENT table. In the layout wizard, use the <A 
+  href='http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#tabularlayout"'>Tabular</A> 
+  layout and <A 
+  href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#numberofrecords">display 
+  5 Records</A> in the form. Add a scrollbar. 
+  <LI>In the Layout Editor, create a new text item called MGR_LAST_NAME in the 
+  DEPARTMENT data block. Be sure the DEPARTMENT block is selected when the new 
+  item is created. Change the properties of MGR_LAST_NAME so it is not a 
+  Database item. <BR>Add a text label to this new MGR_LAST_NAME field. 
+  <P></P>
+  <LI>Create a list of values called LOV_MGR based upon the query: <PRE>SELECT ssn, lname  FROM  employee
+</PRE>Map the employee.ssn column to the :DEPARTMENT.MGRSSN field.<BR>Map the 
+  employee.lname column to the :DEPARTMENT.MGR_LAST_NAME field.<BR>
+  <P></P>
+  <LI>Create a POST-CHANGE trigger on the MGRSSN item so that when it changes, 
+  the following code will execute: <PRE>SELECT lname
+INTO   :DEPARTMENT.MGR_LAST_NAME
+FROM   employee
+WHERE  employee.ssn = :DEPARTMENT.MGRSSN;
+</PRE>This will automatically populate the non base table field MGR_LAST_NAME 
+  on the form when the form is queried. </LI></UL>
+<P>The form should look like the following: 
+<P><IMG alt="[Example: List of Values]" 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/f9ids_nbt_lov_ex.jpg"> 
+
+<P>
+<HR>
+<A name=storedprocedures></A>
+<H2>9. Oracle Forms Program Units and Stored Program Units</H2><!-- This tutorial is copyrighted by Richard Holowczak (C) 1997-2004 richard_holowczak@baruch.cuny.edu ** DO NOT COPY -->Oracle 
+Forms provides a mechanism to store procedures (called Program Units) written in 
+the PL/SQL language within a form. Program Units can be used to add 
+functionality that is not possible through Structured Query Language (SQL) or 
+through the Oracle Forms interface. Some examples of Program Units were given in 
+the discussion on <A 
+href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#programunits">Program 
+Units in a Master-Detail Form</A>. By storing a Program Unit within a form, many 
+blocks in the form can take advantage of the same procedure which reduces code 
+duplication and improves the maintainability of the code. 
+<P>Procedures written in PL/SQL may also be stored within the Oracle Database 
+itself as an object in the schema. Such Stored Program Units (also called Stored 
+Procedures) are ideal for situations where highly standardized business rules or 
+applications logic must be implemented across many forms or applications. In 
+addition, procedures that require several queries be made to the database may be 
+best implemented in the database as this reduces the network traffic and can 
+significantly improve performance. A user may create stored procedures with the 
+Oracle SQL*Plus command line tool. 
+<P>Oracle Forms can make calls to both internal Program Units as well as to 
+Stored Program Units. This flexibility allows application designers extensive 
+control over the execution of applications and facilitates performance tuning. 
+<P>In the following sections, examples of Oracle Forms Program Units and Stored 
+Program Units will be given. <A name=creatingformsprocedures></A>
+<H3>9.1 Creating Program Units in Oracle Forms</H3>In this section, we will 
+augment the EMPLOYEE form by adding a count of other members of a given 
+employee's department. To add this functionality, we will add a new field item 
+to the EMPLOYEE block, write a Procedure in PL/SQL to gather the data and then 
+write a Trigger that will call the Procedure each time a new Employee record is 
+queried. 
+<P><A name=addnewitemtoemployee></A>
+<H4>9.1.1 Add a new item to the EMPLOYEE Block</H4>Add a new item on the 
+EMPLOYEE block to store the count of other employees in the department. See the 
+section on <A 
+href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#addinganewitem">Adding 
+a New Item to an Existing Block</A> for details. 
+<P>Call this field <B>OTHER_MEMBERS</B>. Be sure it is a non-database field and 
+that a user will not be able to navigate there, insert, update or delete data in 
+the field. Go to the Properties and check each of them: 
+<P><B>Enabled:</B> True<BR><B>Navigable:</B> No<BR><B>Database Item:</B> 
+No<BR><B>Query Only:</B> No<BR><B>Primary Key:</B> No<BR><B>Insert Allowed:</B> 
+No<BR><B>Query Allowed:</B> No<BR><B>Update Allowed:</B> No<BR><BR 
+clear=all><BR>
+<P>Add a label to this field by switching to the Layout Editor, choosing the 
+text tool and clicking next to the OTHER_MEMBERS field. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/9ids_proc1.gif"> 
+
+<P><A name=createprocedureotherdeptmembers></A>
+<H4>9.1.2 Create a Procedure to Count Other Department Members</H4>In this step, 
+create a Program Unit (procedure) in Oracle Forms to count the number of other 
+members in the same department. For this procedure, we will pass in a parameter 
+called IN_EMPLOYEE_SSN that will contain an employee's social security number. 
+The procedure will return a value in the parameter OUT_COUNT_OTHER_MEMBERS that 
+will contain the number of other employees who are in the same department. 
+<P>To create this procedure, switch to the Object Navigator and scroll down to 
+the <B>Program Units</B> branch. Pull down the <TT>Edit</TT> menu and choose the 
+<TT>Create</TT> menu item. A dialog box will appear asking you to name the new 
+procedure. Type in the name <TT>OTHER_DEPARTMENT_MEMBERS</TT> and click on the 
+OK button. 
+<P>At this point, the PL/SQL editor will appear. Type in the following procedure 
+body. An explanation of each part of the procedure is given afterwards: 
+<P>
+<TABLE cellPadding=5 border=1>
+  <TBODY>
+  <TR>
+    <TD><FONT size=-1><XMP>-- Given an Employee's SSN, return the number of other employees
+-- in the same department.
+PROCEDURE OTHER_DEPARTMENT_MEMBERS (IN_EMPLOYEE_SSN IN NUMBER,
+  OUT_COUNT_OTHER_MEMBERS OUT NUMBER) IS
+
+TEMP_COUNT NUMBER;   -- Placeholder for count
+
+BEGIN
+  TEMP_COUNT := 0;     -- Initialize to 0
+
+  --  Try and fill TEMP_COUNT with the count of other 
+  --  Employees in the department
+  SELECT COUNT(*)
+  INTO   TEMP_COUNT
+  FROM   EMPLOYEE
+  WHERE  EMPLOYEE.DNO = 
+  (SELECT EMPLOYEE.DNO
+  FROM   EMPLOYEE
+  WHERE  EMPLOYEE.SSN = IN_EMPLOYEE_SSN);
+
+  -- See if we got a meaningful result
+  IF (NVL(TEMP_COUNT, 0) <> 0) THEN
+    OUT_COUNT_OTHER_MEMBERS := (TEMP_COUNT - 1 );
+  ELSE 
+    OUT_COUNT_OTHER_MEMBERS := 0;
+  END IF;
+END;</XMP></FONT></TD></TR></TBODY></TABLE>
+<P>The procedure is written in three main sections. Any lines starting with 
+<TT>-- </TT>are comments and are ignored by Oracle forms. 
+<P>The heading for the procedure definition indicates that one parameter, 
+IN_EMPLOYEE_SSN, is a NUMBER data type and the procedure should expect a value 
+to be passed in. The other parameter, OUT_COUNT_OTHER_MEMBERS, is also a NUMBER 
+data type and a value will be passed back to the calling program through it. 
+<P>To finish off the procedure header, the TEMP_COUNT variable is declared for 
+use within this procedure only. 
+<P>The BEGIN statement starts the body of the procedure. TEMP_COUNT is 
+initialized to 0 and then a query is performed on the database to find the total 
+number of employees in the same department as the employee whose SSN was 
+supplied to the procedure. 
+<P>The result in TEMP_COUNT is checked to see if it is a NULL value. If 
+TEMP_COUNT is not NULL and it is not 0, then OUT_COUNT_OTHER_MEMBERS is set to 
+equal TEMP_COUNT-1. Otherwise OUT_COUNT_OTHER_MEMBERS is set to 0. 
+<P>The last END statement ends the body of the procedure. 
+<P>Be sure to check to see that the procedure compiles by clicking on the 
+<TT>Compile</TT> button. Any errors in the procedure will be highlighted. Some 
+common problems include forgetting to use <TT>:= </TT>in an assignment statement 
+(like the Pascal language) and leaving off the <TT>END IF</TT> to finish up 
+<TT>IF ... THEN</TT> statements. 
+<P>When done, click on the <TT>Close</TT> button to close the PL/SQL editor. 
+<P><A name=createatriggertocallprocedure></A>
+<H4>9.1.3 Create a Trigger to Call the Procedure</H4>
+<P>Create a trigger to call the OTHER_DEPARTMENT_MEMBERS procedure. In the 
+Object Navigator, open up the EMPLOYEE block and the SSN item. Highlight the 
+<B>Trigger</B> branch for the SSN item, pull down the <TT>Edit</TT> menu and 
+choose the <TT>Create</TT> menu item. 
+<P>A pop up list of trigger names will appear. Choose POST-CHANGE and click on 
+the OK button to open the PL/SQL editor for this new trigger. Type in the 
+following code for the POST-CHANGE trigger on the SSN item: 
+<P>
+<TABLE cellPadding=5 border=1>
+  <TBODY>
+  <TR>
+    <TD><FONT size=-1><XMP>DECLARE
+  return_count NUMBER;
+BEGIN
+  -- Call the Forms Procedure to get the
+  -- count of others in the department.
+  OTHER_DEPARTMENT_MEMBERS(:EMPLOYEE.SSN, return_count);    
+  -- Assign the return count to the field on
+  -- the EMPLOYEE block.
+  :EMPLOYEE.OTHER_MEMBERS := return_count;
+END;</XMP></FONT></TD></TR></TBODY></TABLE>
+<P>Again, click on the <TT>Compile</TT> button to be sure the trigger compiles 
+correctly and then click on the <TT>Close</TT> button to return to the Object 
+Navigator. 
+<P><A name=savecopmileandruntheform></A>
+<H4>9.1.4 Save, Compile/Build and Run the Form</H4>To this point, we have added 
+a new non-base table field to the EMPLOYEE block, written a procedure (Program 
+Unit) to count other employees in the same department and added a trigger to 
+call the procedure each time a new employee record is queried. 
+<P>To save you work, use the <TT>Save As</TT> menu item on the <TT>File</TT> 
+menu and save this form under the name: <TT>emp_memb.fmb</TT> 
+<P>Save, Compile/Build, and Run the form to check its functionality. Note that 
+when scrolling to a new employee's record, the OTHER_MEMBERS field is 
+automatically populated with values indicating the number of other employees in 
+the same department. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/9ids_proc2.gif"> 
+
+<P><A name=sqlplustoredprocedures></A>
+<H3>9.2 Creating Stored Procedures in SQL*Plus</H3>In the previous example, we 
+added a procedure (Program Unit) in Oracle Forms to perform a query on the 
+database. The procedure is stored as part of the form's source code and is 
+compiled when the form is built. Upon examination, each call of this procedure 
+produces: 
+<OL>
+  <LI>A local call from the POST-CHANGE trigger to the procedure passing an 
+  employee's SSN. 
+  <LI>A remote access from the procedure to the database passing a SQL query. 
+  <LI>A remote return from the database containing a count. 
+  <LI>A small amount of processing in the procedure (IF ... THEN). 
+  <LI>A local return from the procedure to the trigger. </LI></OL>
+<P>In this exchange, the highest costs are incurred by the network traffic 
+required to go back and forth between client and server (steps 2 and 3). The 
+lowest costs are incurred by the local calls between trigger and procedure and 
+the local processing (steps 1, 4 and 5). 
+<P>In this example, the SQL Query in steps 2 and 3 does not return a significant 
+amount of data. However, there are situations where, if a large amount of data 
+were to be returned for each query, such queries would severely impact 
+performance. 
+<P>One solution to this problem is to move the queries and as much processing as 
+possible "closer" to the data in the database. Thus our example for this section 
+will be to implement the OTHER_DEPARTMENT_MEMBERS procedure in the Oracle 
+database. To achieve this, we will need to use Oracle SQL*Plus (a command-line 
+tool) to create a stored procedure. 
+<P>Log in to SQL*Plus and enter the following CREATE PROCEDURE statement. 
+Alternatively, save this statement in a text file and execute it using the 
+<TT>START</TT> command in SQL*Plus. 
+<P>
+<TABLE cellPadding=5 border=1>
+  <TBODY>
+  <TR>
+    <TD><FONT size=-1><XMP>CREATE PROCEDURE OTHER_DEPARTMENT_MEMBERS
+ (IN_EMPLOYEE_SSN IN NUMBER,
+  OUT_COUNT_OTHER_MEMBERS OUT NUMBER)  AS
+  -- Given an Employee's SSN, return the number of other employees
+  -- in the same department.
+
+TEMP_COUNT NUMBER;   -- Placeholder for count
+
+BEGIN
+  TEMP_COUNT := 0;     -- Initialize to 0
+
+  --  Try and fill TEMP_COUNT with the count of other
+  --  Employees in the department
+  SELECT COUNT(*)
+  INTO   TEMP_COUNT
+  FROM   EMPLOYEE
+  WHERE  EMPLOYEE.DNO =
+    (SELECT EMPLOYEE.DNO
+    FROM   EMPLOYEE
+    WHERE  EMPLOYEE.SSN = IN_EMPLOYEE_SSN);
+
+  -- See if we got a meaningful result
+  IF (NVL(TEMP_COUNT, 0) <> 0) THEN
+    OUT_COUNT_OTHER_MEMBERS := (TEMP_COUNT - 1 );
+  ELSE
+    OUT_COUNT_OTHER_MEMBERS := 0;
+  END IF;
+END;</XMP></FONT></TD></TR></TBODY></TABLE>
+<P>After typing in this statement, be sure to <TT>RUN</TT> the command in the 
+SQL*Plus buffer by typing <TT>RUN</TT> or by typing the forward slash <TT>/ 
+</TT>
+<P>Note: While creating a stored procedure, you may receive an error similar to 
+the following: <PRE>ORA-01031: insufficient privileges
+</PRE>This indicates the DBA has not granted you the authorization to create 
+stored procedures. Please contact your DBA to obtain this authorization. 
+<P>To see if the procedure compiled correctly, look in view USER_ERRORS as 
+follows: <XMP>SQL> SELECT * FROM user_errors;
+
+no rows selected
+</XMP>If the message <TT>no rows selected</TT> appears, then no errors were 
+found in the trigger. 
+<P>Another alternative is to use the SQL*Plus command called <TT>show 
+errors</TT>. After submitting a trigger or a stored procedure, any errors found 
+during compilation can be displayed using the <TT>show errors</TT> command. 
+<P>In some versions of SQL*Plus, the <TT>show errors</TT> command will not work 
+due to a lack of buffer memory on the client computer. An error message may 
+appear as in the following example: 
+<TABLE cellPadding=4 border=1>
+  <TBODY>
+  <TR>
+    <TD><FONT size=-1><XMP>SQL> CREATE PROCEDURE test AS
+2  BEGIN
+3    SELECT SYSDATE INTO :temp FROM dual;
+4  END;
+5  /
+
+Warning: Procedure created with compilation errors.
+
+SQL> show errors
+buffer overflow. Use SET command to reduce ARRAYSIZE or increase MAXDATA.
+No errors.
+</XMP></FONT></TD></TR></TBODY></TABLE>
+<P>If the <TT>buffer overflow</TT> message appears, set the ARRAYSIZE variable 
+to a lower number such as 2 with the following command: <XMP>SQL>   SET ARRAYSIZE 2
+</XMP>
+<P>Then use the <TT>show errors</TT> command as described: 
+<TABLE cellPadding=4 border=1>
+  <TBODY>
+  <TR>
+    <TD><FONT size=-1><XMP>SQL> show errors
+Errors for PROCEDURE TEST:
+
+LINE/COL ERROR
+-------- --------------------------------------------
+3/23     PLS-00049: bad bind variable 'TEMP'
+</XMP></FONT></TD></TR></TBODY></TABLE>
+<P>
+<P>To see what stored procedures you have created, query the USER_SOURCE view in 
+the data dictionary. 
+<P>The only major difference between the stored procedure created in the 
+database schema through SQL*Plus and the procedure created in Oracle Forms is 
+the way the header is formatted. Creating a stored procedure uses the following 
+syntax: <PRE>
+<B>CREATE PROCEDURE</B> OTHER_DEPARTMENT_MEMBERS
+ (IN_EMPLOYEE_SSN IN NUMBER,
+  OUT_COUNT_OTHER_MEMBERS OUT NUMBER)  <B>AS</B>
+</PRE>Contrast this with the procedure done in Oracle Forms: <PRE><B>PROCEDURE</B> OTHER_DEPARTMENT_MEMBERS
+ (IN_EMPLOYEE_SSN IN NUMBER,
+  OUT_COUNT_OTHER_MEMBERS OUT NUMBER) <B>IS</B>
+</PRE>
+<P>Once the OTHER_DEPARTMENT_MEMBERS procedure (Program Unit) has been created 
+in SQL*Plus, it is stored as an object in your schema and will remain there 
+until a <TT>DROP PROCEDURE OTHER_DEPARTMENT_MEMBERS</TT> statement is issued. 
+Any Oracle Form, Report or other procedure can make calls to 
+OTHER_DEPARTMENT_MEMBERS as if it were a local procedure. 
+<P>To see the stored procedure in action, open the <TT>emp_memb.fmb</TT> form 
+and remove (delete) the Program Unit (procedure) OTHER_DEPARTMENT_MEMBERS from 
+it. Save the form, compile, generate and run it. 
+<P>The POST-CHANGE trigger on :EMPLOYEE.SSN will automatically make a call to 
+the stored procedure version of OTHER_DEPARTMENT_MEMBERS located in the schema. 
+<P>To view the available Stored Program Units from within Oracle Forms, switch 
+to the Object Navigator and open up the <B>Database Objects</B> tree. From 
+there, a list of schemas (users) will appear. Scroll down to your username and 
+open it up. Then open up the Stored Program Units tree. A list of your stored 
+procedure should then appear. 
+<P><A name=additionalprocedures></A>
+<H3>9.3 Additional Stored Procedures and Triggers</H3>
+<P>There are countless ways in which stored procedures and triggers can be used 
+to enforce business rules and to process data in an application. In this 
+section, a few of the most commonly used triggers and procedures are described. 
+<A name=uniqueidtable></A>
+<H3>9.3.1 Generating unique or consecutive identifiers using the table</H3>
+<P>Many of the keys used in tables are based on a number sequence. For example, 
+in our DEPARTMENT table, the DNUMBER is an integer that should increase for each 
+new department. To automatically generate a new DNUMBER, create a query to 
+capture the largest current DNUMBER value and add 1 to it. Then assign this new 
+value to the DNUMBER item in the DEPARTMENT data block. A trigger to do this 
+could be created at the block level and should execute before any new record is 
+inserted into the database. A <TT>PRE-INSERT</TT> trigger on the DEPARTMENT data 
+block would be used for this example: <XMP>BEGIN
+  SELECT MAX( dnumber ) + 1
+  INTO :department.dnumber
+  FROM  department;
+END;
+</XMP>A PRE-INSERT trigger executes just before the INSERT statement for a new 
+record is sent to the database. 
+<P><A name=uniqueidsequence></A>
+<H3>9.3.2 Generating unique or consecutive identifiers using an Oracle 
+Sequence</H3>
+<P>One problem with the above method is that many users working on the same form 
+to insert new records will run into concurrency problems. For each new record to 
+be inserted, a full table scan must be done to find the largest identifier. 
+<P>One solution to this problem is to use an Oracle Sequence. An Oracle Sequence 
+is a schema object that keeps track of a simple integer and automatically 
+increments this counter when it is accessed. 
+<P>For example, in our DEPARTMENT table, the DNUMBER is an integer that should 
+increase for each new department. To automatically generate a new DNUMBER, 
+create an Oracle Sequence using the SQL*Plus tool: <XMP>CREATE SEQUENCE department_seq
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 99999
+NOCYCLE;
+</XMP>The above <TT>department_seq</TT> sequence will begin counting from 1 and 
+increment by 1 until it reaches 99999. After that, accessing the sequence will 
+produce an error. This is reasonable since it is highly unlikely an organization 
+will ever have more than 99999 departments. 
+<P>The next step is to assign the next value of the sequence to the DNUMBER item 
+in the DEPARTMENT data block. A trigger to do this would be created at the block 
+level and should execute before any new record is inserted into the database. A 
+<TT>PRE-INSERT</TT> trigger on the DEPARTMENT data block would be used for this 
+example: <XMP>BEGIN
+  -- Get the next value for DNUMBER from the
+  -- department_seq sequence.
+  SELECT department_seq.nextval
+  INTO :department.dnumber
+  FROM  dual;
+END;
+</XMP>The <TT>dual</TT> table is a dummy table that contains exactly one record 
+(row). We can use it in a SELECT...INTO statement to consistently return a 
+single value. The <TT>nextval</TT> accessed in the sequence will return the 
+current sequence value and then automatically increment it to the next value. 
+<P>A PRE-INSERT trigger executes just before the INSERT statement for a new 
+record is sent to the database. 
+<P>Oracle Sequences are not applicable for master-detail forms such as purchase 
+orders where an item number needs to be assigned in the detail table. For 
+example, purchase order items are typically numbered: <TT>1, 2, 3...</TT>. The 
+next PO will also number the items <TT>1, 2, 3, ...</TT>. An Oracle Sequence is 
+designed to deliver unique identifiers for primary keys and should not be used 
+for such item numbers. 
+<P><A name=checkingconstraintsclient></A>
+<H3>9.3.3 Checking constraints at the client</H3>
+<P>In any database system, it is always desirable to constrain the values 
+certain columns can take on. It is possible to add constraints to the database 
+tables themselves in order to enforce constraints, however, the enforcement only 
+takes place when a transaction reaches the database. In addition, many 
+constraints on the data that involve values of data from other tables may not be 
+easily implemented as table constraints. 
+<P>Many types of constraints on data can be checked in the client using 
+triggers. For example, in an EMPLOYEE data entry form, we may want to enforce a 
+constraint that no employee can act as their own supervisor. Thus for any 
+record, SSN may not equal SUPERSSN. To implement such a constraint, add the 
+SUPERSSN item to the EMPLOYEE form (or simply create a new form from scratch 
+using the wizard that includes both SSN and SUPERSSN columns) and then create a 
+<TT>WHEN-VALIDATE-ITEM</TT> trigger on the SUPERSSN item in the EMPLOYEE data 
+block: <XMP>BEGIN
+  IF (:SUPERSSN = :SSN) THEN
+    MESSAGE('Employees may not supervise themselves!');
+    RAISE FORM_TRIGGER_FAILURE;        
+  END IF;
+END;
+</XMP>The FORM_TRIGGER_FAILURE will cause the execution of the item validation 
+to be halted and the user will have to change the SUPERSSN before moving on to 
+another item. 
+<P><A name=addingalerts></A>
+<H3>9.3.4 Adding Alerts (Pop-up Messages)</H3>
+<P>In the previous example, the MESSAGE procedure is used to display the error 
+along the status bar at the bottom of the Forms window. A better approach may be 
+to force the user's attention to the problem. This can be accomplished by 
+creating a pop-up dialog box that forces the user to read the message and click 
+an OK button (or some other button). In Oracle Forms, this is called an Alert. 
+<P>To set up an Alert: 
+<UL>
+  <LI>Use the Object Navigator to display the Alerts area. Pull down the 
+  Navigator menu and choose Create. Click on the default name that is given for 
+  the new alert (something like ALERT4) and rename it: <TT>SUPERVISOR_ALERT</TT> 
+
+  <LI>Bring up the Property Palette for this Alert and fill in the following 
+  properties:<BR><B>Title:</B> Supervisor Alert Message<BR><B>Message:</B> 
+  Employees may not supervise themselves!<BR><B>Alert Style:</B> STOP 
+  <BR><B>Button 1 Label:</B> OK <BR>Leave the <B>Button 2 Label</B> and the 
+  <B>Button 3 Label</B> blank <BR><B>Default Alert button:</B> Button 1<BR>Leave 
+  all of the other properties with their defaults and close the Property 
+  palette. 
+  <LI>Change the above <TT>WHEN-VALIDATE-ITEM</TT> trigger on the SUPERSSN item 
+  in the EMPLOYEE data block to: <XMP>DECLARE
+return_alert NUMBER; 
+BEGIN
+  IF (:SUPERSSN = :SSN) THEN
+     return_alert := SHOW_ALERT ('SUPERVISOR_ALERT'); 
+     RAISE FORM_TRIGGER_FAILURE;        
+  END IF;
+END;
+</XMP>The SHOW_ALERT procedure calls up the specified alert and obtains the 
+  return value (based on the button the user clicks on) to assign to a local 
+  variable called <TT>return_alert</TT>. </LI></UL>Below is an example of the 
+Alert in action: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/alert_ex.jpg"> 
+
+<P>In general, Alerts may provide several different buttons for the user to 
+click on. For example, to confirm exiting a form, a POST-FORM trigger might 
+invoke an "Are you sure you want to Exit" Alert with "Yes" and "No" buttons. Or, 
+to confirm deleting a record, a PRE-COMMIT trigger might invoke an "Are you sure 
+you want ot delete this Employee?" Alert with "Yes" and "No" buttons. Based on 
+the return_alert value, either a commit or rollback might be issued. 
+<P><!-- AutoQuery forms here --><A name=autoquery>
+<H3>9.3.5 Automatic Forms Query</H3>As discussed earlier in the tutorial, by 
+default, when a form runs, the underlying table data is not automatically 
+queried and displayed. It is up to the user to execute a query, for example, by 
+pulling down the query menu and choosing Execute. 
+<P>To automate this process, create a WHEN-NEW-FORM-INSTANCE trigger that 
+navigates to the master data block and then issues the EXECUTE_QUERY built-in 
+procedure. For example, assuming the master block is named "EMPLOYEE", the 
+following code will cause a query to be executed immediately after the form 
+opens: <PRE>BEGIN
+  GO_BLOCK('EMPLOYEE');
+  EXECUTE_QUERY;
+END;
+</PRE><A name=populatewithdefaults></A>
+<H3>9.3.6 Populate items with default values</H3>
+<P>There are many cases where default values can be suggested for certain data 
+items based upon values already supplied in other data items. The method here is 
+to use a POST-ITEM or WHEN-VALIDATE-ITEM trigger to populate another field, only 
+if the other field is currently blank. For example, to populate the SUPERSSN 
+data item of the EMPLOYEE block based upon the MGRSSN of the employee's 
+department, the following WHEN-VALIDATE-ITEM trigger code might be used on the 
+DNO data item: <XMP>BEGIN
+  IF :SUPERSSN IS NULL THEN
+    SELECT department.mgrssn
+    INTO   :employee.superssn
+    FROM   department
+    WHERE  department.dnumber = :employee.dno;
+  END IF;
+END;
+</XMP>Note that the IF statement uses <TT>:SUPERSSN IS NULL</TT> to check to see 
+if any value has been supplied for SUPERSSN. If nothing was typed into the 
+SUPERSSN data item, then its value is NULL. If the user types anything at all 
+into the SUPERSSN data item, then the IF statement will evaluate to false and no 
+value will be suggested. 
+<P><A name=commandbuttons></A>
+<H3>9.3.7 Attaching functionality to command buttons</H3>
+<P>Command buttons can be added on a form to carry out functions such as exiting 
+a form, committing/saving changed records and so on. The basic command button 
+object contains properties for the button Label (the text provided on the button 
+itself). Additional properties include visual attributes including the ability 
+to display a bitmap image in place of the button's normal appearance. 
+<P>Once a button has been physically placed on a form, functionality is added 
+but writing a <TT>WHEN-BUTTON-PRESSED</TT> trigger. As one might expect, this 
+trigger executes when the user clicks on the button. So, for example, to create 
+a button to exit the form when the user clicks on it the 
+<TT>WHEN-BUTTON-PRESSED</TT> trigger might look like: <XMP>DECLARE
+  return_alert NUMBER; 
+BEGIN
+  return_alert := SHOW_ALERT ('EXIT_ALERT'); 
+  IF (return_alert = alert_buttin1) THEN
+    EXIT_FORM;
+  END IF;
+END;
+</XMP>The above code assumes there is an Alert called EXIT_ALERT with two 
+buttons: "Yes" and "No". If the user clicks on the first button ("Yes") then the 
+EXIT_FORM procedure is called and the form will exit (close). If the user clicks 
+on any other button, then the Alert will close and the form will remain open. 
+<P><A name=passingparameters></A>
+<H3>9.3.8 Passing parameters between forms</H3>There are many occasions that 
+require the passing of data from one form to another. One such example is when 
+we query a certain record on one form and then wish to call up another form with 
+the same record automatically retrieved. In general, data values can be passed 
+between forms using GLOBAL variables (treat :GLOBAL as a block available in all 
+forms) or by using Parameter lists. In the example, below, the parameter list 
+features will be used to demonstrate how data can be passed from one form to 
+another. 
+<P>For this example, we wil make use of two forms: A basic EMPLOYEE form with 
+all fields and the EMPLOYEE/DEPENDENT master/detail form (created in a <A 
+href="http://cisnet.baruch.cuny.edu/holowczak/oracle/dev2k/9ids/#exercise_masterdetail">previous 
+exercise</A> - the file name should have been <TT>empdepn.fmb</TT>). The idea is 
+to place to button on the EMPLOYEE form that when pressed, will call the 
+EMPLOYEE/DEPENDENT form and automatically query the dependents for the employee 
+being viewed on the EMPLOYEE form. The main steps are: 
+<UL>
+  <LI>On the EMPLOYEE form, create a button and label it "Query 
+  Dependents".<BR>Create a WHEN-BUTTON-PRESSED trigger with the following code 
+  (comments are enclosed in the code): <FONT size=-1><XMP>DECLARE
+  -- Declare pl_id as the identifier for the parameter list 
+  pl_id   ParamList;
+BEGIN
+  -- See if that parameter list already exists. If so, destroy it 
+  pl_id := Get_Parameter_List('tmpdata');
+  IF NOT Id_Null(pl_id) THEN
+    Destroy_Parameter_List( pl_id );
+  END IF;
+  -- Create a fresh parameter list */
+  pl_id := Create_Parameter_List('tmpdata');
+
+  -- Add a new parameter to this list called EMPLOYEESSN       
+  -- Assign this parameter the current value of the :SSN field 
+  Add_Parameter(pl_id, 'EMPLOYEESSN', TEXT_PARAMETER, :SSN);
+
+  -- Now run a new form called 'empdepn' (must be in the same
+  -- directory as the employee form we are now editing.) 
+  -- Pass along the identifier of our parameter list (pl_id)  
+  Run_Product(FORMS, 'empdepn', SYNCHRONOUS, RUNTIME,
+     FILESYSTEM, pl_id, NULL);
+
+  -- Note: In newer version of Forms, you may need to call 
+  -- formsid := FIND_FORM_OBJECT('empdepn');                
+  -- view_forms := RUN_FORM_OBJECT(formsid, pl_id);          
+  -- or if running a Report from a form you may need to call:
+  -- reportid := FIND_REPORT_OBJECT('myreport');
+  -- view_report := RUN_REPORT_OBJECT(reportid, pl_id);
+  -- Note that 'myreport' must be created under the Reports entry in the
+  -- Object Navigator in Forms
+END;
+</XMP></FONT><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/when_button_pressed.jpg"> 
+  <BR clear=all>Note: In 9iDS, you may need to use either RUN_REPORT_OBJECT or 
+  RUN_FORM_OBJECT. <BR>Important note: You may also have to include the full 
+  path of to the file name of the form you are launching with the Run_Product 
+  function call. For example:<BR><PRE> Run_Product(FORMS, 'd:\myfiles\empdepn', SYNCHRONOUS, RUNTIME,
+     FILESYSTEM, pl_id, NULL);
+</PRE>If you receive error <TT>FRM-40010 Cannot read form empdepn.fmx</TT> 
+  then you will need to include the full directory path to where your forms are 
+  located. 
+  <P></P>
+  <LI>Compile and save this form. 
+  <LI>Now open up the <TT>empdepn</TT> (EMPLOYEE/DEPENDENT) form. 
+  <LI>Using the Object Navigator, create a new PARAMETER called EMPLOYEESSN. 
+  This parameter will automatically be assigned a value based on the parameter 
+  list passed to the form by the above RUN_PRODUCT procedure call. <BR>
+  <LI>Create a new trigger called WHEN-NEW-FORM-INSTANCE. This trigger will 
+  execute whenever the form is first run. <FONT size=-1><XMP>DECLARE
+-- Declare a forms block identifer 
+blk_id Block;
+BEGIN
+  -- Obtain the block ID of the EMPLOYEE block.  This is the 
+  -- Master block in the empdepn master/detail form.         
+  blk_id := Find_Block('EMPLOYEE');
+  IF NOT Id_Null(blk_id) THEN
+    -- Check to make sure our parameter has a value. If this form   
+    -- were executed by itself, then the parameter will be null.    
+    -- If this form is called from EMPLOYEE then the parameter will 
+    -- be passed along and assigned to :PARAMETER.employeessn       
+    IF (:PARAMETER.employeessn is not null) THEN
+        -- Since we have a parameter, use it to alter the WHERE Clause 
+        -- property so that it becomes WHERE ssn=:PARAMETER.employeessn 
+        SET_BLOCK_PROPERTY(blk_id,DEFAULT_WHERE,'ssn=' || :PARAMETER.employeessn);
+        -- Navigate to the EMPLOYEE block and execute a query automatically 
+        GO_BLOCK('EMPLOYEE');
+        EXECUTE_QUERY;
+    END IF;
+  END IF;
+END;
+</XMP></FONT><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/when_new_form_instance.jpg"> 
+  <BR clear=all>
+  <LI>Compile and save the <TT>empdepn</TT> form. 
+  <LI>Now run the EMPLOYEE form, query an employee record and click on the 
+  "Query Dependents" button. The <TT>empdepn</TT> form should appear with the 
+  dependents automaticaly queried. </LI></UL>
+<UL></UL>
+<P>The above examples are just a few of the great many things one can do with 
+Oracle Forms. The on-line help that ships with Forms contains many example forms 
+and example pieces of code (see the Forms PL/SQL Reference) that go far beyond 
+the simple techniques demonstrated above. 
+<P><A name=proceduretriggerexercises></A>
+<H3>9.4 Exercise: Procedures and Triggers</H3>The following are some suggested 
+exercises using various combinations of triggers and procedures: 
+<UL>
+  <LI>Use a simple Department data entry form and create an Oracle Sequence 
+  (using SQL*Plus) that will generate new Department numbers for the DEPARTMENT 
+  table. Add the requisite PRE-INSERT trigger code to insert a unique DNUMBER 
+  each time a new department record is created. 
+  <LI>Add a WHEN-NEW-FORM-INSTANCE trigger to the above Department form that 
+  will automatically query the DEPARTMENT table when this form is opened. 
+  <LI>Use a simple Employee data entry form and create an alert that displays a 
+  warning if an employee's salary is larger than their supervisor's. In a 
+  WHEN-VALIDATE-ITEM trigger, run a query to check if the employee's salary is 
+  greater than their supervisor's and if so, show the alert. 
+  <LI>Use the Employee/Dependent Master/Detail form you created in exercise 7.6 
+  and put in some validation code that will check to make sure if a DEPENDENT is 
+  a SON or DAUGHTER, then the DEPENDENT's BDATE must be less than the EMPLOYEE's 
+  BDATE. If this is not the case, show an alert. 
+  <LI>After you learn how to create Reports (see the next section) create a 
+  simple DEPARTMENT data entry form with a button that, when pressed, will run a 
+  report for that department (show all employees for example) by passing along 
+  the DNUMBER as a parameter. <BR>Note that you will need to use some code in 
+  your button similar to the following: <PRE>DECLARE
+   reportid       REPORT_OBJECT;
+   view_report    VARCHAR2(100); 
+   report_result  VARCHAR(30);
+   rep_status     VARCHAR2(20);
+   -- Declare pl_id as the identifier for the parameter list
+   pl_id   ParamList;
+
+BEGIN   
+  -- NOTE: In order to launch a report from Forms, you must have the Reports server 
+  -- running on your local machine.
+  -- At a DOS prompt type:  rwserver -install localhost autostart=yes
+  -- This will install a reports server for your machine (localhost) and start it up.
+  
+  -- Next, create a Reports Object in Forms Object Navigator.
+  -- This is named "MYREPORT" for this example.  This reports
+  -- object will have properties including the path to the actual
+  -- report file (.rdf file) you want to run.
+
+  pl_id := Get_Parameter_List('tmpdata');
+  IF NOT Id_Null(pl_id) THEN
+    Destroy_Parameter_List( pl_id );
+  END IF;
+  -- Create a fresh parameter list 
+  pl_id := Create_Parameter_List('tmpdata');
+
+  -- Add a new parameter to this list called MYDNUMBER
+  -- Note that in the report being called (empreport.rdf) the
+  -- report query should use :MYDNUMBER in the WHERE clause
+  --  as in    SELECT * FROM employee WHERE dno = :MYDNUMBER
+  -- Assign this parameter the current value of the :DNUMBER field
+  Add_Parameter(pl_id, 'MYDNUMBER', TEXT_PARAMETER, :DNUMBER);
+
+  -- Now execute the report object.  This object must be created
+  -- in the Object Navigator under REPORTS (just below "Record Groups")
+  
+  report_result := RUN_REPORT_OBJECT('MYREPORT', pl_id);
+
+  -- Check on the report status and loop until it is done
+  rep_status := REPORT_OBJECT_STATUS(report_result);
+  WHILE rep_status in ('RUNNING','OPENING_REPORT','ENQUEUED') LOOP 
+     rep_status := report_object_status(report_result); 
+  END LOOP; 
+  -- When the report is done, open up a new window and display it
+  IF rep_status = 'FINISHED' THEN 
+     WEB.SHOW_DOCUMENT('http://localhost:8888/reports/rwservlet/getjobid'|| substr(report_result,instr(report_result,'_',-1)+1)||'?'||'server=localhost','_blank'); 
+  END IF;  
+
+END;
+
+</PRE></LI></UL>
+<P>
+<HR>
+
+<P><!-- End of Forms --><A name=oraclereportsbasics></A>
+<H2>10. Oracle Reports Basics</H2><!-- This tutorial is copyrighted by Richard Holowczak (C) 1997-2004 richard_holowczak@baruch.cuny.edu ** DO NOT COPY -->We 
+now turn our attention to another Developer tool called Oracle Reports. The 
+Oracle Reports Builder allows the developer to create sophisticated reports in a 
+variety of layouts and contains many customization features. In this section, 
+the basic steps for creating a simple report and a Master-Detail report will be 
+given. 
+<P><A name=repstartingwindows></A>
+<H3>10.1 Starting Developer tools under Windows 95/98/NT/2000/XP</H3>
+<P>A typical installation of Developer creates several folders under the Start 
+Programs menu. 
+<P>To run Oracle9i Reports Builder under Windows, click on the <TT>Start -&gt; 
+Programs -&gt; Oracle9i Developer Suite - Home -&gt; Reports Developer -&gt; 
+Reports Builder</TT> menu item. 
+<P>Under UNIX, run the <TT>rwbuilder.sh</TT> script. 
+<P>An initial screen will appear: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/9ids_reports_initial.jpg"> 
+
+<P>Click on the Cancel button to proceed directly to the Object Navigator. 
+<P><A name=repobjectnavigator></A>
+<H3>10.2 The Oracle Reports Object Navigator</H3>The Oracle Reports main screen 
+is called the Object Navigator (similar to Oracle Forms) and can be seen in the 
+following figure: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/9ids_reports_main.jpg"> 
+
+<P>The main sections of the Object Navigator are: 
+<OL>
+  <LI><B>Reports</B> which include: 
+  <UL>
+    <LI><B>Data Model</B> - Contains information about queries used for a 
+    report. 
+    <LI><B>Web Source</B> - A web page or web service that returns a data set. 
+    <LI><B>Paper Layout</B> - Contains information about how a paper or screen a 
+    report is formatted including headers, footers, margins, fonts, etc. 
+    <LI><B>Paper Parameter Form</B> - Contains information about the initial 
+    screen that is displayed when a form first runs. 
+    <LI><B>Report Triggers</B> - PL/SQL code that can be executed before, during 
+    or after a report has been executed. 
+    <LI><B>Program Units</B> 
+    <LI><B>Attached Libraries</B> </LI></UL>
+  <LI><B>Templates</B> - Existing templates that can be used to create new 
+  reports. 
+  <LI><B>PL/SQL Libraries</B> - Libraries of PL/SQL code. 
+  <LI><B>Debug Actions</B> - Actions the debugger is scheduled to track. 
+  <LI><B>Stack</B> - The current state of execution of a procedure. 
+  <LI><B>Built-in Packages</B> - The built-in packages already in the database. 
+  <LI><B>Database Objects</B> - Tables, sequences, views, etc. </LI></OL>
+<P>As with Oracle Forms, the first step in using Oracle Reports is to Connect to 
+an Oracle server. This is accomplished by pulling down the <TT>File</TT> menu 
+and selecting the <TT>Connect</TT> menu item. 
+<P>Fill in your Oracle Username and Oracle Password (press the tab key to move 
+between the fields). 
+<P>For the <TT>Database</TT> field, type in the service name for your Oracle 
+database. For example, if you are using Personal Oracle Lite, the 
+<TT>Database:</TT> would be <TT>ODBC:POLITE</TT>. Contact your system 
+administrator to learn the service name for your Oracle database and provide 
+that information in the <TT>Database:</TT> field. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/connect.jpg"> 
+
+<P>Click on the <TT>Connect</TT> button to complete the connection (Under some 
+versions of UNIX, the button is labeled <TT>OK</TT>). If the user name or 
+password is mistyped or incorrect, the dialog box will be re-displayed. Be sure 
+to provide your Oracle username and password (not your UNIX host password). 
+<P><A name=repcreatingresports></A>
+<H3>10.3 Creating Reports in Oracle Reports</H3>Creating reports follows a 4 
+step process: 
+<OL>
+  <LI>Define the Data Model - This step specifies which queries should be run on 
+  the database including how multiple queries are related and how they are 
+  grouped. This step must be done by hand. Queries that have been created 
+  elsewhere can be imported into Oracle Reports. 
+  <LI>Define the Layout - This step specifies the layout of the report including 
+  the overall orientation of query results and the suppression of repeating 
+  groups. There are a number of default report layouts that can automatically be 
+  applied to a data model. 
+  <LI>Create and/or Customize the Parameter Form - If some user input is 
+  required in order to run the report, then a parameter form must be customized. 
+  All reports have a default parameter form. 
+  <LI>(optional) Create any triggers or program units that will be executed with 
+  the report. </LI></OL>
+<P>Oracle Reports version 3.0, 6i and 9iDS all support a wizard that takes the 
+developer through all of these steps. This approach will be demonstrated next. 
+<P><A name=repcreatingsingletablereports></A>
+<H3>10.4 Creating a Single-Table Report</H3>In this section, we go through the 
+steps for creating a report that views the contents of a single table. <A 
+name=repspecifydatamodel></A>
+<H4>10.4.1 Specify the Data Model and Layout</H4>The first step is to specify 
+the data model and layout of the report. We will use the Report wizard to 
+accomplish this. From the Object Navigator, pull down the <TT>Tools</TT> menu 
+and choose <TT>Report wizard...</TT> 
+<P>The first screen for the reports wizard will appear as below: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_wiz1.jpg"> 
+
+<P>The first option is to decide the type of report to be created. Oracle 
+Reports can be created to display on a web page (inside of a web browser), or by 
+using the more traditional Oracle Reports runtime. The latter is called the 
+"Paper Layout". For this example, both types of layouts will be created. Make 
+certain the "Create both Web and Paper Layout" option is selected and click the 
+Next button. 
+<P>The next step in the wizard prompts for the style of the report and for the 
+Report Title. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_wiz2.jpg"> 
+
+<P>The eight layout choices include: 
+<OL>
+  <LI>Tabular - Simple table with column headings at the top and data records in 
+  consecutive rows below. 
+  <LI>Form - Column headings on the left hand side with data values next to them 
+  on the right. 
+  <LI>Mailing Label - No column headings and records grouped into repeating 
+  sections sized to print directly to a sheet of mailing labels. 
+  <LI>Form Letter - Arbitrary placement of data items within a text body. 
+  <LI>Group-Left - A Master/Detail/Detail style where the master records are 
+  grouped on the left hand side with details to the right. 
+  <LI>Group-Above - A Master/Detail/Detail style where the master records appear 
+  above the detail records. 
+  <LI>Matrix - Column labels on both the left and the top with data values in 
+  the middle. Similar to a spreadsheet. 
+  <LI>Matrix with Group - A combination of Master/Detail (Group-Above) and 
+  Matrix. </LI></OL>
+<P>For this report, type in "Employee Report" as the title, choose the 
+<B>Tabular</B> Layout and click on the Next button. 
+<P>The next step is to specify the Type of query the report will be based on. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_wiz3.jpg"> 
+
+<P>The five choices are: 
+<OL>
+  <LI>Express Server Query - a query based on a stored Oracle Express Server 
+  (OLAP) 
+  <LI>JDBC Query - A Query posed to a JDBC (Java DataBase Connectivity) Source 
+  <LI>SQL Query - A traditional SQL query to an Oracle database 
+  <LI>Text Query - A query posed against a text data source 
+  <LI>XML Query - A query posed against an XML data source (the Document Type 
+  Definition (DTD) of the XML data source is also required to use this type of 
+  query). </LI></OL>
+<P>For this example, choose the "SQL Query" and click the next button. 
+<P>The next step is to specify the query that will form the basis of the report. 
+In this case, type the following query in the SQL Query Statement: text box: <PRE>SELECT FNAME, LNAME, SSN, SALARY, DNO
+FROM EMPLOYEE ;
+</PRE>
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_wiz4.jpg"> 
+
+<P>For future reference, one could also invoke the graphical Query Builder at 
+this step, or choose to import a SQL query from a text file. 
+<P>Once the SQL SELECT statement is entered, click on the Next button to move to 
+the next step. Note: If you did not Connect to the database, you will be 
+prompted for the Username, Password and Database. 
+<P>In the next wizard dialog box, specify which columns from the SQL Query will 
+be displayed in the report output. To specify all columns, click on the double 
+right arrow to bring all of the <I>Available Fields</I> to the <I>Displayed 
+Fields</I> side. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_wiz5.jpg"> 
+
+<P>Click on the Next button to move to the next dialog box. 
+<P>In the next step, aggregate functions can be applied to the fields on the 
+report. For this example, we will display the average salary as well as a count 
+of employees. Highlight the SALARY field and click on the <I>Average</I> button. 
+Then highlight the SSN field and click on the <I>Count</I> button. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_wiz6.jpg"> 
+
+<P>The next dialog box allows you to change the field labels and display widths 
+for various fields in the report. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_wiz7.jpg"> 
+
+<P>As a final step, a design template can be applied to the report. Design 
+templates include specifications for fonts, colors and layout of the report. For 
+this example, choose the "Blue" predefined template and then click on the Finish 
+button. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_wiz8.jpg"> 
+
+<P>
+<P>After a short delay, the Reports Live Previewer will appear showing the 
+report. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_wiz9.jpg"> 
+
+<P>It is possible to make changes to the layout of the report (fonts, colors, 
+positions of headings and titles, etc.) by using the tool palettes and tool 
+bars. When you have finished touching up the report, close the Reports Live 
+Previewer and the Object Navigator will reappear. To edit the report again, pull 
+down the <TT>Tools</TT> menu and choose <TT>Report Editor</TT>. 
+<P><A name=repsavinggeneratingrunning></A>
+<H4>10.4.2 Saving, Generating and Running the Report</H4>To save a report, pull 
+down the <TT>File</TT> menu and choose the <TT>Save</TT> option. This is similar 
+to saving an Oracle Form. The source code for Oracle Reports are saved in files 
+with an <TT>.rdf</TT> file name extension. Compiled and generated reports are 
+saved with a <TT>.rep</TT> extension. 
+<P>For this example, save this report as <TT>employee.rdf</TT> 
+<P>Note that report files can also be saved as static HTML or XML files as well 
+as Java Server Pages (.jsp) files. 
+<P>Once the report is saved, it can be run by pulling down the <TT>Program</TT> 
+menu and choosing the <TT>Run Web Layout</TT> or <TT>Run Paper Layout</TT> menu 
+item. The Paper Layout option will display the current report directly within a 
+window inside of Reports Builder as was seen at the end of the report wizard. 
+The Web Layout will take the current report with a snapshot of the data as it is 
+now in the database and save it to an HTML file. The default web browser will 
+then be launched to display the file. This is shown in the figure below: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_web_rep1.jpg"> 
+
+<P>
+<P>As the report is running, an Activity screen will appear giving an indication 
+of the processing that is currently underway. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/rep_run_activity.gif"> 
+
+<P>The Activity will go through 3 stages: Client Activity while the queries are 
+prepared, Server Activity when the queries are executed and finally Client 
+Activity as the report is formatted. When this is finished, the report will 
+appear on screen. <A name=exercise_simplereport></A>
+<H3>10.5 Exercise: Creating a Report</H3>For this exercise, create a report to 
+display all of the records in the DEPARTMENT table including a join with the 
+EMPLOYEE table to display the last name of the department manager. 
+<UL>
+  <LI>Start up the Report wizard. Use "Departments" as the title and enter the 
+  following SQL Statement as the query: <PRE>SELECT dnumber, dname, mgrstartdate, mgrssn, lname, salary
+FROM   department, employee
+WHERE  department.mgrssn = employee.ssn;
+</PRE>
+  <LI>Summarize the report with an average of the Salary column. 
+  <LI>Save the new report as <TT>departmg.rdf</TT> </LI></UL>The finished report 
+should look something like the following: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_exercise1.jpg"> 
+
+<P><!--
+REP-0200 Can not allocate enough memory: 4294966872 bytes.
+-->
+<P><A name=repmasterdetail></A>
+<H3>10.6 Creating a Master-Detail Report</H3>In this section, the steps for 
+creating a report that views the contents of two tables in a Master-Detail (one 
+to many) relationship are given. To avoid any confusion, Save and Close any 
+existing reports before proceeding. <A name=repmddatamodel></A>
+<H4>10.6.1 Specify the Master-Detail Data Model and Layout</H4>As in the 
+single-table report, we begin by specifying the data model and layout for the 
+Master-Detail report by using the Report Wizard. 
+<P>Invoke the wizard by pulling down the <TT>Tools</TT> menu and choosing 
+<TT>Report wizard</TT>. Following these steps to complete the wizard: 
+<OL>
+  <LI>Choose both Web and Page Layouts 
+  <LI>For the Report Title use: Departments and Employees 
+  <LI>For the <I>Report Style</I>, choose <I>Group Above</I>. 
+  <LI>Choose a SQL Statement and the SQL Query: <PRE>SELECT DNAME, FNAME, LNAME, SALARY
+FROM DEPARTMENT, EMPLOYEE
+WHERE DEPARTMENT.DNUMBER = EMPLOYEE.DNO
+</PRE>
+  <LI>Designate the DNAME field as a <I>Group field</I> (Level 1). Click on the 
+  DNAME field and then on the right arrow button. 
+  <LI>Display all fields in the report. 
+  <LI>Choose Average Salary as a <I>Totals</I> field. Click on the SALARY field 
+  and then click on the Average button. 
+  <LI>Touch up the fields and labels as follows: <PRE>Fields and Totals   Labels
+DNAME               Department Name
+FNAME               First Name
+LNAME               Last Name
+SALARY              Salary
+AvgSALARYperDNAME   Average:
+AvgSALARYperRep     Average For all Employees:
+</PRE>
+  <LI>Use the Blue pre-defined template. </LI></OL>From this point, click on 
+Finish to display the Live Report Preview: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_md_exam.jpg"> 
+
+<P><A name=repmdsavinggenerating></A>
+<H4>10.6.2 Saving, Generating and Running the Master-Detail Report</H4>At this 
+point, the report can be saved and Execute (Run). 
+<P>For this example, save the Master-Detail report as <TT>dept_emp.rdf</TT> 
+<P><A name=exercise_masterdetailreport></A>
+<H3>10.7 Exercise: Creating a Master-Detail Report</H3>
+<P>In this exercise, a master-detail report will be created that displays each 
+EMPLOYEE record, with a group of DEPENDENT below. 
+<P>
+<UL>
+  <LI>Create a new Report using the wizard. Give a title: "Employees and Their 
+  Dependents" 
+  <LI>Select the Group Above report type and use the following SQL query: <PRE>SELECT  employee.fname, employee.lname, 
+employee.bdate AS EmpBdate, 
+employee.sex AS EmpSex, dependent.dependent_name,
+dependent.bdate AS DepBdate,  
+dependent.sex AS DepSex, dependent.relationship
+FROM    employee, dependent
+WHERE   employee.ssn = dependent.essn;
+</PRE>Note the use of column aliases (AS) to differentiate the bdate and sex 
+  columns. 
+  <LI>Select the <TT>lname, fname, empsex, empbdate</TT> fields as the "Group 1" 
+  fields. These should all be from the EMPLOYEE table. 
+  <LI>Select all fields to display in the report and do not select any fields 
+  for the calculate totals step. 
+  <LI>Touch up the report in the live previewer to fit on one screen. 
+  <LI>Save the report as file: <TT>empdepen.rdf</TT> </LI></UL>
+<P>The report should look similar to the following when completed: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_ex_reportmd.jpg"> 
+
+<P><A name=parameterforms_reports></A>
+<H3>10.8 Parameter forms in Oracle Reports</H3>
+<P>For each of the Oracle Reports examples thus far, all of the records in the 
+respective tables were returned as part of the report. However, there may be 
+situations where only a subset of the database records are required. In these 
+cases, we would like to prompt the user to enter some criteria that can be used 
+to filter the report. In Oracle Reports, a <I>Parameter Form</I> fulfills this 
+role. 
+<P>Parameter forms are simple Oracle forms that prompt the user for some 
+information before a report is executed. This information can become part of the 
+WHERE clause in the report query and is used to filter the records returned in 
+the report. Parameters in Oracle Reports can either be filled in by the user on 
+a parameter form or can be filled in automatically by passing the parameters in 
+from another Oracle Forms form (see the example of parameter passing in the 
+previous section on Oracle Forms). 
+<P>In the following example, a simple parameter form is automatically created by 
+Oracle Reports to restrict a query on the EMPLOYEE table by showing only 
+employees in a given department number (DNO) supplied by the user. 
+<P>
+<OL>
+  <LI>Create a new report using the report wizard. Specify "Employees" as the 
+  report title and use a Tabular report layout. 
+  <LI>Use the following SQL query exactly as written. Note the use of the full 
+  colon in the WHERE clause. <PRE>SELECT *
+FROM   employee
+WHERE  employee.dno = :DNO_PARAMETER;
+</PRE>In the above query, :DNO_PARAMETER is the name of a run time parameter. 
+  When the report is executed, the user will supply a value for this parameter 
+  thus completing the WHERE clause for the query.<BR>Clicking on the 
+  <TT>Next</TT> button will produce the following alert:
+  <P><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_param_note.jpg"> 
+
+  <P></P>
+  <LI>Choose all of the columns (fields) for display in the report. Do not 
+  choose any fields for summary information. 
+  <LI>When the report wizard is finished, the report and parameter form (based 
+  upon the parameters given in the SQL query) will be created. As the live 
+  previewer is running, the new parameter form will be displayed: 
+  <P><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_param_form1.jpg"> 
+
+  <P>For this example, choose department 5 (type the number 5 in the field) and 
+  press the enter key. Notice that only employees in department 5 are displayed 
+  in the live previewer. </P></LI></OL>
+<P><A name=customparamform></A>
+<H4>10.8.1 Building a Custom Parameter Form</H4>
+<P>At this point, whenever the report is run, a default parameter form showing 
+the DNO_PARAMETER will be displayed. However, it is possible to create a custom 
+parameter form as shown in the following steps. 
+<P>
+<OL>
+  <LI>Switch to the Object Navigator, pull down the <TT>Tools</TT> menu and 
+  choose the <TT>Parameter Form Builder</TT>. This is shown below: 
+  <P><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_param_form_builder.jpg"> 
+
+  <P>A number of built-in system parameters are displayed and can be highlighted 
+  by clicking on them with the right mouse button. Note that at the bottom of 
+  this list is the DNO_PARAMETER and it should already be selected. 
+  <P></P>
+  <LI>For this example, in addition to the DNO_PARAMETER also select the 
+  DESTYPE, DESNAME and COPIES parameters. Then click the <TT>OK</TT> button. A 
+  new parameter form will be automatically created. 
+  <P></P>
+  <LI>Save the report as <TT>empparam.rdf</TT>. When the form is executed (pull 
+  down the <TT>Program</TT> menu and choose <TT>Run Report</TT>), the new 
+  parameter form will be displayed as shown below: 
+  <P><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/r9ids_param_run.jpg"> 
+
+  <P>In the above example, 1 copy of the report will be sent to the printer 
+  named "HP LaserJet 4000 Series". The report will only show employees in 
+  department 4. 
+  <P>Other Destination Type options include Screen, File and E-mail. 
+</P></LI></OL>Parameter forms can be highly customized to include list of values 
+user prompts and other user-friendly features. The techniques used for Oracle 
+Forms can be easily applied to parameter forms in Oracle Reports. <!-- End of Reports -->
+<P>
+<HR>
+
+<P><A name=creatingmenusinoracleforms></A>
+<H2>11. Creating Menus in Oracle Forms</H2><!-- This tutorial is copyrighted by Richard Holowczak (C) 1997-2004 richard_holowczak@baruch.cuny.edu ** DO NOT COPY --><FONT 
+color=red>Please note that as of May, 2004, I have only done a basic update of 
+this section to reflect the new features of 9iDS. Therefore, the following 
+section has no figures, has not been tested and may not work at all. </FONT>
+<P><FONT size=-1>Note: The properties for Menus in different versions of Forms 
+seem to change with every minor revision. Please keep in mind, the version of 
+Forms you are working with may differ slightly from what is shown in this 
+tutorial.</FONT> 
+<P>Thus far, we have covered the basics for creating forms and reports using 
+Oracle Developer. Some advanced features such as using stored procedures 
+(Program Units) have also been introduced. 
+<P>In a complete Database System, the applications consist of many forms and 
+reports that might be used by a number of users. Access to forms and reports is 
+typically accomplished through <I>menus</I>. In Oracle Developer, menus can be 
+created to guide users into forms and reports of interest. Menus are designed as 
+part of the Oracle Forms Builder. 
+<P>In Oracle Forms, every form runs with one of the following: 
+<OL>
+  <LI>The default menu which includes the Action, Edit, Block, Field, Record, 
+  Query, Window, Help menus. The structure of the default menu cannot be 
+  changed. 
+  <P><IMG 
+  src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/forms6i_default_menu.gif"> 
+
+  <P></P>
+  <LI>A custom menu that you define as a separate module and then attach to the 
+  form for runtime execution. 
+  <LI>No menu at all. </LI></OL>
+<P>The default menu is part of the form module. However, custom menu modules are 
+separate from form modules. So, when a single-form application runs using a 
+custom menu, there will be two executable files: 
+<UL>
+  <LI>an <TT>.FMX</TT> form module 
+  <LI>an <TT>.MMX</TT> menu module </LI></UL>
+<P>In a multi-form application, Multiple forms can share the same menu, or each 
+form can invoke a different menu. 
+<P>
+<TABLE cellPadding=3 border=1>
+  <TBODY>
+  <TR>
+    <TD>To explicitly specify the default menu in Forms: 
+      <OL>
+        <LI>Select the name of the form/module in the Object Navigator. Click 
+        with the right mouse button and choose <TT>Properties</TT> from the 
+        pop-up menu. 
+        <LI>In the <B>Menu Module</B> property, type DEFAULT&amp;SMARTBAR to get 
+        the default menu and a button bar below it. 
+        <P>If you want the form to run without a menu, leave the <B>Menu 
+        Module</B> property blank. </P></LI></OL>
+      <P><IMG 
+      src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/menu_forms6i_properties.gif"> 
+      </P></TD>
+    <TD>To explicitly specify the default menu in older versions of Developer: 
+
+      <OL>
+        <LI>Select the name of the form/module in the Object Navigator. Click 
+        with the right mouse button and choose <TT>Properties</TT> from the 
+        pop-up menu. 
+        <LI>In the <B>Menu Module</B> property, type DEFAULT.
+        <P>If you want the form to run without a menu, leave the <B>Menu 
+        Module</B> property blank. </P></LI></OL>
+      <P><IMG 
+      src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/menu_form_properties.gif"> 
+      </P></TD></TR></TBODY></TABLE>
+<P>The default menu is suitable for control over the current form being 
+executed, however, it does not contain custom menu items pertaining to a 
+specific application. In the following section, the steps to create a custom 
+menu structure will be introduced. <A name=menuhierarchy></A>
+<H3>11.1 The Oracle Forms Menu Hierarchy</H3>
+<P>The Oracle Forms menu hierarchy contains three object categories: 
+<OL>
+  <LI><B>Menu modules</B> - Like form modules, a menu module can contain its own 
+  items (menus and menu items), program units and other objects. 
+  <LI><B>Menus</B> - Including main menus, individual menus, and submenus 
+  <LI><B>Menu items</B> </LI></OL><A name=creatingcusomtmenu></A>
+<H3>11.2 Creating a Custom Menu</H3>Designing a custom menu requires five basic 
+steps: 
+<OL>
+  <LI>Creating a menu module 
+  <LI>Creating menus and menu items 
+  <LI>Assigning commands to menu items 
+  <LI>Saving and generating (Compiling) the menu module (creates the .mmx file) 
+  <LI>Attaching a menu module to a form </LI></OL>
+<P>
+<H4>11.2.1 Creating a Menu Module</H4>The first step in designing a custom menu 
+is to create a menu module. There are several ways to create a new menu module: 
+<OL>
+  <LI>Pull down the <TT>File</TT> menu, highlight the <TT>New</TT> menu item and 
+  then select the <TT>Menu</TT> menu item. 
+  <LI>Navigate down to the <B>Menus</B> subtree in the Object Navigator, pull 
+  down the <TT>Edit</TT> menu and choose the <TT>Create</TT> menu item. 
+</LI></OL>A new menu module will be created and a default name will be assigned. 
+Click on this default menu name and assign it a more meaningful name such as 
+<TT>mymenu</TT>. 
+<H4>11.2.2 Creating menus and menu items </H4>Creating menus and menu items can 
+be accomplished using the <B>Menu Editor</B>. To activate the menu editor, first 
+highlight the name of your menu, then pull down the <TT>Tools</TT> menu and 
+click on the <TT>Menu Editor</TT> item. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/menu_editor1.gif"> 
+
+<P>The main menu items go across the top of the screen. To add a new menu across 
+the top, click on the <B>Build Across</B> icon on the toolbar: <IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/menu_buildacross.gif"> 
+
+<P>Sub-menus and menu items appear below each one. To add a new sub-menu or menu 
+item, click on the <B>Build Down</B> icon on the toolbar: <IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/menu_builddown.gif"> 
+
+<P>To change the name of a menu or menu item, click in the menu object and 
+over-write the name that appears there. 
+<P>Using the icons, create and re-label several menus and menu items to appear 
+as follows: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/menu_editor2.gif"> 
+
+<P>Once this is completed, the basic menu structure will be in place. The next 
+step is to add functionality to each menu item. 
+<H4>11.2.3 Assigning Commands to Menu Items </H4>The default behavior for 
+clicking on any menu is for that menu's items to be displayed. The next step is 
+to assign commands to each of the menu items so that when a user clicks on a 
+menu item, a form, report or SQL*Plus script is executed. 
+<P>To assign a command to a menu item: 
+<OL>
+  <LI>Select the desired menu item in the Menu Editor. Click with the right 
+  mouse button and choose <TT>Properties</TT> to bring up the properties of that 
+  menu item.<BR><FONT size=-1>Note: The pop-up menu may show <TT>Property 
+  Palette</TT></FONT> 
+  <LI>The properties of interest here are: 
+  <UL>
+    <LI><B>Command type:</B> Indicates what kind of command should be run: Form, 
+    Report, PL/SQL, other menu. In general, the PL/SQL command type is used to 
+    launch Oracle Forms and Oracle Reports. The specific Form and Report command 
+    types are maintained for backwards compatibility only. 
+    <LI><B>Menu Item Code</B> (or <B>Command Text</B>): The text of the actual 
+    command to run. </LI></UL>
+  <P>To run a form from the menu item, choose <B>Command Type</B> PL/SQL. Double 
+  click on the <B>Menu Item Code</B> (or <B>Command Text</B>) property and type 
+  in the PL/SQL editor: <PRE>BEGIN
+RUN_PRODUCT(FORMS, 'employee', SYNCHRONOUS, RUNTIME,
+      FILESYSTEM, '', '');
+END;
+</PRE>
+  <P>RUN_PRODUCT is a PL/SQL built-in function that runs another Oracle 
+  Developer product. The parameters to RUN_PRODUCT are: 
+  <UL>
+    <LI>Product: FORMS or REPORTS 
+    <LI>Document/Module: name of the file in single quotes (Note that you may 
+    also provide an explicit path to the .fmx file here) 
+    <LI>Command Mode: SYNCHRONOUS or ASYNCHRONOUS 
+    <LI>Executable Mode: RUNTIME 
+    <LI>Location: FILESYSTEM or DATABASE 
+    <LI>Parameter List: A list of parameters to pass to the form or NULL 
+    <LI>Display: Type of display to show the product on. Can be NULL to indicate 
+    the current display. Note: Starting with Forms 5.0, (which uses PL/SQL 
+    version 2.3) you may not use NULL in the call to RUN_PRODUCT here. You must 
+    use two single quotes (indicating a zero length character string). </LI></UL>
+  <P>Compile this code by clicking on the <TT>Compile</TT> button. Then close 
+  the PL/SQL editor. 
+  <P></P></LI></OL>Repeat the above steps for each menu item. 
+<P>A final menu item should be created to Exit the application. Call the menu: 
+<B>Exit Application</B> and enter the following PL/SQL code: <PRE>BEGIN
+EXIT_FORM;
+END;
+</PRE>
+<P>EXIT_FORM is a built-in procedure that exits the current form. 
+<P>A View of the complete <TT>mymenu</TT> is show below: 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/menu_complete.gif"> 
+
+<P>
+<P>
+<H4>11.2.4 Save and Generate the Menu Module</H4>At this point, all of the menu 
+structure has been created and commands for each menu item have been specified. 
+The menu module must now be saved to a file (with a <TT>.mmb</TT> extension) and 
+Generated or Compiled. 
+<P>To save the menu module, make sure the name of the menu is highlighted, pull 
+down the File menu and choose the <TT>Save</TT> menu item. Specify a file name 
+with a <TT>.mmb</TT> extension. This is the "source code" for the menu. For this 
+example, use the file name <TT>mymenu.mmb</TT>. 
+<P>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TH>Pre-Oracle9iDS 
+    <TH>Oracle 9iDS 
+  <TR>
+    <TD>To generate or compile the menu module, pull down the <TT>File</TT> 
+      menu, click on the <TT>Administration</TT> menu item and choose 
+      <TT>Generate</TT> from the flyout menu. In some versions of the Forms 
+      Builder, the menu item might be called <TT>Compile File</TT>. </TD>
+    <TD>To generate or compile the menu module, pull down the <TT>Program</TT> 
+      menu and choose <TT>Generate Module</TT>. </TD></TR></TBODY></TABLE>
+<P>Generating or compiling a menu module results in a file with a <TT>.mmx</TT> 
+extension. In this example, the generated menu module becomes: 
+<TT>mymenu.mmx</TT> 
+<P>
+<H4>11.2.5 Attaching a Menu Module to a Form</H4>A custom menu must be attached 
+to a form in order to be displayed. Typically, a form with no data entry on it 
+is used as the main screen to host the custom menu. 
+<P>
+<P>The following steps are different depending on the version of Forms being 
+used. 
+<P>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TH>For Oracle Forms version 4.5 
+    <TH>For Oracle Forms version 6i (and later) 
+  <TR vAlign=top>
+    <TD>
+      <OL>
+        <LI>Create a new form with no blocks or items on it. Pull down the 
+        <TT>File</TT> menu, select <TT>New</TT> and then select <TT>Form</TT>. 
+        <LI>Display the properties for the form and set the <B>Menu Module</B> 
+        property to the file name of the menu module (see previous step). For 
+        this example, it should be: <TT>mymenu.mmx</TT> 
+        <LI>Make sure the <B>Use File</B> property is set to <TT>True</TT>. 
+        <P><IMG 
+        src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/blankform.gif"> 
+
+        <P></P>
+        <LI>Save the form as file <TT>blankform.fmb</TT> and generate this form. 
+        (Note you should save the this form in the same drive and directory as 
+        your menu's <TT>.mmx</TT> file). 
+        <LI>Run the form. </LI></OL>
+    <TD>
+      <OL>
+        <LI>Create a new form with no blocks or items on it. Pull down the 
+        <TT>File</TT> menu, select <TT>New</TT> and then select 
+        <TT>Form</TT>.<BR>Click on the name of the form in the object navigator 
+        and rename it as <TT>blankform</TT>. 
+        <LI>Open up the property palette for the form and set the following 
+        properties:<BR><B>Menu Source</B>: File - The menu information will come 
+        from a file.<BR><B>Menu Module</B>: <TT>mymenu.mmx</TT> - The file name 
+        of the compiled menu module. You may have to give the explicit path to 
+        this <TT>.mmx</TT> file. For example, if this file is on your A: drive 
+        then type <TT>a:\mymenu.mmx</TT> 
+        <P><IMG 
+        src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/forms6i_blankform_properties.gif"> 
+
+        <P></P>
+        <LI>Save the form as file <TT>blankform.fmb</TT> and generate this form. 
+        (Note you should save the this form in the same drive and directory as 
+        your menu's <TT>.mmx</TT> file). 
+        <LI>Run the form. </LI></OL></TR></TBODY></TABLE>
+<P>Notice that when running this blank form, the default menu is replaced by the 
+<TT>mymenu</TT> Menu Module. 
+<P><IMG 
+src="Oracle9i Developer Suite - A Tutorial on Oracle9i Forms and Reports_files/menu_running.gif"> 
+
+<P>The blank form that is used to host the menu need not be blank. You may wish 
+to use the Layout Editor to place some graphics and a title of the application 
+on the canvas. 
+<P>Another use for this space would be for some simple instructions the user can 
+read to get started with the database application. 
+<HR>
+<!--
+<P>
+<A NAME="graphicschartwiz"></A>
+<H2>12.1 Graphics and the Chart Wizard</H2>
+
+
+
+The Oracle Graphics Builder can be used to 
+create a variety of graphs and charts including
+bar charts, line plots and pie graphs. Typically,
+a graphic object designed with Oracle graphics
+is included on either a form or a report.
+The Oracle Forms Builder includes a wizard
+that will automatically construct an Oracle graphic
+object using data from an existing data block.
+
+<P>
+<A NAME="addingcharttoform"></A>
+<H3>12.1 Adding a Chart to a Form</H3>
+<P>
+
+In the following example, an Oracle Graphics object will
+be added to a basic Master/Detail form.
+As a first step, create a new Master/Detail form
+using the DEPARTMENT table (DNUMBER and DNAME columns)
+as the master block and the EMPLOYEE table (FNAME, LNAME, DNO
+and SALARY columns) as the detail block. The chart added to
+this form will compare the SALARY values of the employees
+in a given department.
+<P>
+An example layout is shown below (note the DNO column 
+in the EMPLOYEE block is not displayed):
+<P>
+<IMG SRC="chart_wiz0.gif">
+<P>
+Be sure to save this form on disk before
+moving on to create the chart.
+
+<P>
+To start the Chart Wizard, click on any open area of the
+form while in the layout view. Then pull down the 
+<TT>Tools</TT> menu and choose the <TT>Chart Wizard</TT>.
+The first screen of the Chart Wizard will appear as below:
+<P>
+<IMG SRC="chart_wiz1.gif">
+<P>
+
+Click the <TT>Next</TT> button to move to the
+next step in the wizard. In the next step, choose the
+type of chart (and subtype if applicable) to be created.
+For this example, choose <TT>Pie</TT> and <TT>Depth</TT>
+as shown below and click on the <TT>Next</TT> button:
+<P>
+<IMG SRC="chart_wiz2.gif">
+<P>
+The next step is to choose which data block the
+chart should be based on.  All of the data blocks 
+on the current form should be displayed. For this example, 
+choose the EMPLOYEE block as shown below and 
+click on the <TT>Next</TT> button:
+<P>
+<IMG SRC="chart_wiz3.gif">
+<P>
+The next step is to choose which field in the
+data block should be used for the X-Axis (or 
+category labels) for the chart. For this example,
+choose the LNAME field 
+as shown below and click on the <TT>Next</TT> button:
+<P>
+<IMG SRC="chart_wiz4.gif">
+<P>
+
+The next step is choose which field in the data block
+should be used as the Y-Axis values. For this example,
+choose the SALARY field
+as shown below and click on the <TT>Next</TT> button:
+<P>
+<IMG SRC="chart_wiz5.gif">
+<P>
+
+In the last step for the wizard, the new Oracle
+Graphics object must be saved in a file. Give
+a new name for the graphics object such as <TT>employee.ogd</TT>
+as shown below and click on the <TT>Finish</TT> button:
+
+<P>
+<IMG SRC="chart_wiz6.gif">
+<P>
+
+At this point, the graphics object will be created and placed
+on the form. Use the mouse to move and re-size the object
+as desired.  When finished, save the form again and
+run it. The following figure shows the form as it is
+running. Notice that when the form is queried and
+as new department records are retrieved, the employees
+and their associated salaries for that department are
+displayed in the pie chart.
+<P>
+<IMG SRC="chart_run.gif">
+<P>
+
+When copying forms files that use Oracle Graphics, be sure
+to also copy the associated graphics object files.
+These files typically have an <TT>.OGD</TT> file extension.
+<P>
+
+
+<A NAME="exaddingcharttoform"></A>
+<H3>12.2 Exercise: Adding a Chart to a Report</H3>
+<P>
+For this exercise, add a bar chart depicting the
+employees salaries to a report showing additional
+Employee data.
+<P>
+Start by creating a basic tabular Report making use
+       of the following query:
+<PRE>
+SELECT FNAME, LNAME, DNO, SALARY
+FROM EMPLOYEE
+</PRE>
+The basic report is shown below:
+<P>
+  <IMG SRC="repchart_ex1.gif">
+<P>
+Next, add the Chart using the Chart wizard. Specify "Salaries"
+as the chart title, and use a Bar chart style with "Depth"
+as the sub-type.
+<P>
+For the X Axis, choose LNAME and for the Y Axis choose
+SALARY.
+<P>
+Choose to place the chart at the end of the report
+and give the chart object the name "repsal.ogd".
+<P>
+Important: Make sure that the chart object (the .ogd file)
+and the report file are in teh same directory. By
+default chart objects may be stored in another
+location. If they are not together, you will get
+an error such as "Reports is unable to find the chart object".
+<P>
+Below is the final output of the report with the
+embedded Oracle Graphics chart object:
+<P>
+<P>
+  <IMG SRC="repchart_ex2.gif">
+<P>
+
+
+
+<P>
+<HR>
+<P>
+<A NAME="schemabuilder"></A>
+<H2>13. Oracle Schema Builder</H2>
+
+
+The Oracle Schema Builder provides an
+easy to use graphical user interface for
+defining and modifying tables, views and other 
+schema objects.
+
+<P>
+To run the Schema Builder, choose it from the
+Oracle menu. 
+As with most Oracle development tools, the first
+step will be to connect to the database.
+The Connect dialog box will appear as below:
+<P>
+<IMG SRC="schemab_connect.gif">
+<P>
+Provide a valid username, password and connect
+string (Host string) and click on the <TT>Connect</TT>
+button to establish a connection to the database.
+<P>
+The main Schema Builder screen will appear:
+<P>
+<IMG SRC="schemab_main.gif">
+<P>
+
+<A NAME="creatingschemaobjects"></A>
+<H3>13.1 Creating New Schema Objects</H3>
+
+Creating a new table is a straight forward process.
+First, pull down the <TT>Schema</TT> menu and choose 
+the <TT>Create Table</TT> menu item. A small menu
+will appear. Choose <TT>Table</TT>.
+The mouse pointer will change to an arrow with a <TT>+</TT>
+sign.
+Click in the open space of the Schema Builder main screen and
+the new table will be created.
+<P>
+<IMG SRC="schemab_newt1.gif">
+<P>
+Note that the new table is given a default name (<TT>TABLE1</TT>)
+and it contains several examples columns.
+<P>
+To change the name of the table, click on the current name
+and type over it with a new name. Do not use spaces in 
+the table name. When finished, press Enter or Return
+to set the new name for the table.
+<P>
+To change the name of a column, click on
+a column name and type over the existing name.
+<P>
+To add more columns to the table, simply click the
+lower right hand corner of the table display
+and drag it downwards. Additional columns will appear
+with their default names.
+<P>
+To change the data type and other characteristics of 
+columns, double click on the column name. The
+Define Column dialog box will appear. Highlight
+the column you wish to modify and change its datatype and
+other options on the right hand side.  In the figure
+below, the NAME column has been changed to VARCHAR(20)
+and a NOT NULL constraint has been added by checking off 
+the <TT>Required</TT> checkbox.
+
+<P>
+<IMG SRC="schemab_newt2.gif">
+<P>
+In the following figure, the CUSTOMERID column
+has been designated as the key by checking off the
+<TT>Primary Key</TT>  and <TT>Unique</TT> check
+boxes.
+<P>
+<IMG SRC="schemab_newt3.gif">
+<P>
+
+In the following figure, each of the columns in 
+the CUSTOMER table have been defined:
+<P>
+<IMG SRC="schemab_newt4.gif">
+<P>
+
+Once each of the columns has been renamed and defined,
+the table must be saved in the database. To see the
+SQL statements that will be sent to the database server, 
+pull down the <TT>Schema</TT> menu and choose the
+<TT>Show SQL</TT> menu item.
+<P>
+<IMG SRC="schemab_newt5.gif">
+<P>
+
+At this point, the SQL statements that will be used
+to create the schema can be saved into a text file
+for future use.  To save the SQL statements, pull down
+the <TT>File</TT> menu and choose <TT>Save SQL</TT>.
+A standard windows file save dialog box will appear.
+The default file extension for SQL files is <TT>.sql</TT>
+
+
+<P>
+To commit the schema in the database, either click on 
+the <TT>Commit</TT> button in the <TT>Show SQL</TT>
+dialog box or, from the main Schema Builder
+screen, pull down the <TT>Schema</TT> menu and choose
+the <TT>Commit Schema</TT> menu item. A dialog box will appear
+showing the progress.
+
+<P>
+<IMG SRC="schemab_newt6.gif">
+<P>
+
+To review, a typical Schema Builder session would consist of
+adding new tables to a schema using the <TT>Create Table</TT>
+menu item on the <TT>Schema menu</TT>. Columns in tables can
+be defined by double clicking on the table icons.
+Once all of the tables have been defined in the
+Schema Builder main screen, save off the SQL to a file
+and then commit the schema in the database.
+
+<A NAME="displayingexistingschemaobjects"></A>
+<H3>13.2 Displaying Existing Schema Objects</H3>
+
+If the schema has some tables or views already defined,
+these can be displayed by pulling down the <TT>Data</TT>
+menu and choosing the <TT>Select Data Tables</TT> menu
+item. A dialog box will appear displaying the available
+tables.
+<P>
+<IMG SRC="schemab_selecttab.gif">
+<P>
+To include a table in the Schema Builder main screen, highlight
+a table and click on the <TT>Include</TT> button. The
+table should appear on the main screen and the name of the
+table will be grayed out in the dialog box.
+<P>
+In this example, the EMPLOYEE and DEPARTMENT tables were
+included in the main screen. When all of the desired tables
+have been displayed, click on the <TT>Close</TT> button to
+close the dialog box. Below is the resulting main screen
+after the EMPLOYEE and DEPARTMENT tables were added:
+<P>
+<IMG SRC="schemab_twotab.gif">
+<P>
+
+<A NAME="addingrelationshipsbetweentables"></A>
+<H3>13.3 Adding Relationships between Tables</H3>
+
+Once the tables have either been created or displayed
+in the Schema Builder main screen, relationships between tables
+can be defined. In this example, the DNUMBER column of
+the DEPARTMENT table is related to the DNO columns in 
+the EMPLOYEE table.  The DNUMBER column in DEPARTMENT
+must be defined as a Primary Key.
+
+<P>
+To create the appropriate constraints
+for this relationship, pull down the <TT>Schema</TT> menu
+and choose the <TT>Define Relationship</TT> menu item.
+<P>
+A dialog box will appear with spaces for the Foreign Key
+and Primary Key. Fill these in as appropriate for the
+relationship.  In this example, the Foreign Key
+is EMPLOYEE.DNO and the Primary Key is 
+DEPARTMENT.DNUMBER as shown in the figure below:
+<P>
+<IMG SRC="schemab_relationship.gif">
+<P>
+Click the <TT>OK</TT> button to confirm
+the relationship.  The display will then
+change. A line will appear linking the 
+Primary Key and Foreign Keys.
+<P>
+<IMG SRC="schemab_relationship2.gif">
+<P>
+
+Once again, Schema Builder provides a view of the 
+SQL that will be used to create the Foreign key
+constraints that will implement the relationship in
+the database schema. To see the SQL, pull down the
+<TT>Schema</TT> menu and choose the <TT>Show SQL</TT>
+menu item.
+<P>
+<IMG SRC="schemab_relationship3.gif">
+<P>
+
+As before, the SQL statements to create the
+foreign key constraints can be saved to
+a file using the <TT>File</TT> menu and
+<TT>Save SQL</TT> menu item.
+<P>
+
+Finally, to commit the changes to the database, 
+pull down the <TT>Schema</TT> menu and choose
+the <TT>Commit Schema</TT> menu item.
+<P>
+The next time both DEPARTMENT and EMPLOYEE are 
+displayed in Schema Builder, the relationship
+will automatically appear.
+
+-->
+<HR>
+
+<P>Please feel free to use these tutorials for your own personal use, education, 
+advancement, training, etc. However, I kindly ask that you respect the time and 
+effort I have put into this work by not distributing copies, either in whole or 
+in part, for your personal gain. You may not under any circumstances download, 
+cache or host copies of these tutorials on your own servers. Use of these 
+tutorials for commercial training requires a special arrangement with the author 
+or authors. 
+<P>
+<HR>
+
+<P><FONT size=-1>All material Copyright 1997-2004 <A 
+href="mailto:richard_holowczak@baruch.cuny.edu">R. Holowczak</A></FONT> <!--
+Oracle Developer
+A Tutorial on Oracle Forms, Reports and Graphics
+
+Covering Developer version 6.0 and 6i for Windows 95/98/NT/2000
+
+<A HREF="http://cisnet.baruch.cuny.edu/holowczak/">Richard Holowczak</A><BR>
+</H3>
+<A HREF="http://cisnet.baruch.cuny.edu/">Computers Information Systems Department</A><BR>
+Zicklin School of Business, Baruch College, CUNY<BR>
+and<BR>
+Center for Information Management,<BR>
+Integration and Connectivity 
+(<A HREF="http://cimic.rutgers.edu/">CIMIC</A>)<BR>
+Rutgers University<BR>
+<A HREF="mailto:richard_holowczak@baruch.cuny.edu">
+richard_holowczak@baruch.cuny.edu</A><BR>
+
+Tue Sep  3 14:17:18 EDT 2002
+--></P></BODY></HTML>
