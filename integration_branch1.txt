@@ -1,1 +1,14 @@
 second integration_branch file added in repo.
+
+
+
+
+
+---  sequence creation script
+create sequence seq_mst_control
+increment by 1
+start with 1
+nomaxvalue
+nocycle
+/
+
